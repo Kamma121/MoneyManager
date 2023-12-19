@@ -1,0 +1,94 @@
+<div id="home-page">
+  <div id="home-nav" class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+      <li><a href="" class="nav-link nav-logo">MoneyManager
+        <fa-icon class="fa-border-circle" [icon]="faSackDollar"></fa-icon>
+
+      </a></li>
+      <li><a href="#" class="nav-link nav-option">Home</a></li>
+      <li><a href="#" class="nav-link nav-option">Features</a></li>
+      <li><a href="#" class="nav-link nav-option">Premium</a></li>
+      <li><a href="#" class="nav-link nav-option">Contact</a></li>
+    </ul>
+
+    <div class="text-end">
+      <button type="button" class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+        Sign in
+      </button>
+      <button type="button" class="btn btn-warning sign-up-btn" data-bs-toggle="modal" data-bs-target="#registerModal">
+        Sign up
+      </button>
+    </div>
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="login-logo">
+              <img src="../../assets/images/login-saving-money.png">
+              <h3>MoneyManager</h3>
+            </div>
+            <form>
+              <div class="mb-3">
+                <label for="username" class="form-label text-start">E-mail</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter your e-mail">
+              </div>
+              <div class="mb-3">
+                <label for="password-login" class="form-label text-start">Password</label>
+                <input type="password" class="form-control" id="password-login" placeholder="Enter your password">
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-dark login-btn">Sign in</button>
+              </div>
+            </form>
+            <p class="create-redirect">Don't have an account? <a href="" class="redirect-link" data-bs-toggle="modal"
+                                                                 data-bs-target="#registerModal">Create account</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="login-logo">
+              <img src="../../assets/images/login-saving-money.png">
+              <h3>MoneyManager</h3>
+            </div>
+            <form>
+              <div class="mb-3">
+                <label for="firstName" class="form-label text-start">First name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Enter your first name">
+              </div>
+              <div class="mb-3">
+                <label for="lastName" class="form-label text-start">Last name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Enter your last name">
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label text-start">E-mail</label>
+                <input type="text" class="form-control" id="email" placeholder="Enter your e-mail">
+              </div>
+              <div class="mb-3">
+                <label for="password-register" class="form-label text-start">Password</label>
+                <input type="password" class="form-control" id="password-register" placeholder="Create a password">
+              </div>
+              <div class="mb-3">
+                <label for="password-confirm" class="form-label text-start">Confirm password</label>
+                <input type="password" class="form-control" id="password-confirm" placeholder="Confirm your password">
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-dark login-btn">Register</button>
+              </div>
+            </form>
+            <p class="create-redirect">Already have an account? <a href="" class="redirect-link" data-bs-toggle="modal"
+                                                                   data-bs-target="#loginModal">Sign in</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height: 1300px"></div>
+</div>
