@@ -1,0 +1,98 @@
+# Node - Frontend (Angular)
+/node_modules/
+/dist/
+/src/styles/*.css.map
+/src/styles/*.scss.map
+
+# Angular build - typically the output of ng build
+/dist
+/tmp
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# TypeScript compiled files
+/**/*.ngfactory.ts
+/**/*.ngstyle.ts
+/*.tsbuildinfo
+/.awcache
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backend - Spring Boot
+/target/
+!/src/main/resources/
+!/src/test/resources/
+
+# Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Gradle
+.gradle
+/build/
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Logs
+*.log
+
+# Java bytecode
+*.class
+
+# Serialized Java objects
+*.ser
+
+# If using Jenv for Java version management
+/.jenv
+
+# If using STS (Spring Tool Suite)
+.springBeans
+
+# If using Windows Bash Subsystem
+*.exe
+*.dll
+*.sys
+
+# If using JHipster
+.npm/
+node/
+node_modules/
+src/main/webapp/bower_components/
+src/main/webapp/node_modules/
+src/main/webapp/dist/
+selenium/*.png
+test-results/
