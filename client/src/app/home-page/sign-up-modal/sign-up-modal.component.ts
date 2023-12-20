@@ -26,7 +26,7 @@ export class SignUpModalComponent {
     this.authService.signUp(this.firstName, this.lastName, this.email, this.password).subscribe({
       next: (response: any) => {
         localStorage.setItem('token', response.token);
-        const closeBtn = document.getElementById('sign-in-close');
+        const closeBtn = document.getElementById('sign-up-close');
         if (closeBtn) {
           closeBtn.click();
         }
