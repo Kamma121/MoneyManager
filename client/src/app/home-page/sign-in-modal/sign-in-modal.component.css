@@ -1,0 +1,67 @@
+.modal-dialog {
+  margin-top: 4rem;
+}
+
+.modal-content {
+  position: relative;
+}
+
+.btn-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.btn-close:focus {
+  box-shadow: none;
+}
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  font-size: 20px;
+}
+
+.modal-body img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.form-label {
+  text-align: start;
+}
+
+.login-btn {
+  padding: 5px 60px;
+  text-align: center;
+  line-height: 30px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: black !important;
+  box-shadow: none;
+}
+
+.create-redirect {
+  margin: 0;
+  font-size: 14px;
+}
+
+.redirect-link {
+  text-decoration: none;
+}
+
+.redirect-link:hover {
+  text-decoration: underline;
+}
+
+form {
+  font-family: "Lato Semibold";
+}
