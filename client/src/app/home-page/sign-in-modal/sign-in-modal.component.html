@@ -1,24 +1,31 @@
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+<div class="modal fade" id="sign-in-modal" tabindex="-1" aria-labelledby="signInModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" id = "sign-in-close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         <div class="login-logo">
           <img src="../../assets/images/login-saving-money.png" alt="saving money image">
           <h3>MoneyManager</h3>
         </div>
-        <form>
+        <form (ngSubmit)="onSubmitSignIn()" #signInForm= "ngForm">
           <div class="mb-3">
-            <label for="username" class="form-label text-start">E-mail</label>
-            <input type="text" class="form-control" id="username" placeholder="Enter your e-mail">
+            <label for="email" class="form-label text-start">E-mail</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your e-mail" name="email" [(ngModel)]="email" required>
+            <div *ngIf="invalidEmail" class="alert alert-danger">
+              Invalid email address.
+            </div>
           </div>
           <div class="mb-3">
-            <label for="password-login" class="form-label text-start">Password</label>
-            <input type="password" class="form-control" id="password-login" placeholder="Enter your password">
+            <label for="password-sign-in" class="form-label text-start">Password</label>
+            <input type="password" class="form-control" id="password-sign-in" placeholder="Enter your password" name = "password" [(ngModel)]="password" required>
+            <div *ngIf="invalidPassword" class="alert alert-danger">
+              Invalid password.
+            </div>
           </div>
           <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-dark login-btn">Sign in</button>
+            <button type="submit" class="btn btn-dark sign-btn" [disabled]="signInForm.invalid">Sign in</button>
           </div>
+
         </form>
         <p class="create-redirect">Don't have an account? <a href="" class="redirect-link" data-bs-toggle="modal"
                                                              data-bs-target="#registerModal">Create account</a></p>

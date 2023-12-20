@@ -12,6 +12,8 @@ import { NavigationBarComponent } from './home-page/navigation-bar/navigation-ba
 import { SignInModalComponent } from './home-page/sign-in-modal/sign-in-modal.component';
 import { SignUpModalComponent } from './home-page/sign-up-modal/sign-up-modal.component';
 import { CarouselComponent } from './home-page/carousel/carousel.component';
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -23,13 +25,15 @@ import { CarouselComponent } from './home-page/carousel/carousel.component';
     SignUpModalComponent,
     CarouselComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterOutlet,
-    NgbModule,
-    FontAwesomeModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterOutlet,
+        NgbModule,
+        FontAwesomeModule,
+        FormsModule,
+        HttpClientModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -35,7 +35,7 @@
   text-align: start;
 }
 
-.login-btn {
+.sign-btn {
   padding: 5px 60px;
   text-align: center;
   line-height: 30px;
@@ -43,6 +43,7 @@
   margin-bottom: 2rem;
 }
 
+input[type="email"]:focus,
 input[type="text"]:focus,
 input[type="password"]:focus {
   border-color: black !important;
@@ -65,3 +66,8 @@ input[type="password"]:focus {
 form {
   font-family: "Lato Semibold";
 }
+.alert-danger{
+  padding:5px;
+}
+
+
