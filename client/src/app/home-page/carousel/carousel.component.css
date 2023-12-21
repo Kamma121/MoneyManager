@@ -1,0 +1,39 @@
+.banner-container{
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  text-align: center;
+  height: 800px;
+}
+
+.banner-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.centered-text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 2;
+  font-size: 20px;
+  font-family: "Lato Semibold";
+}
+.author{
+  top:55%;
+  left:50%;
+}
+.carousel-item {
+  transition: transform 2s ease;
+}

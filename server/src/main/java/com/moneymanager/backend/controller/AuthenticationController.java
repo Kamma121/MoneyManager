@@ -4,6 +4,7 @@ import com.moneymanager.backend.auth.AuthenticationRequest;
 import com.moneymanager.backend.auth.AuthenticationResponse;
 import com.moneymanager.backend.auth.AuthenticationService;
 import com.moneymanager.backend.auth.RegisterRequest;
+import com.moneymanager.backend.exception.UserAlreadyExistException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,7 @@ public class AuthenticationController {
     private final AuthenticationService authenticationService;
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request){
+    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) throws UserAlreadyExistException {
         return ResponseEntity.ok(authenticationService.register(request));
     }
 

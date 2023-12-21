@@ -1,0 +1,24 @@
+<div id="home-nav" class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+  <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+    <li><a href="" class="nav-link nav-logo">MoneyManager
+      <fa-icon class="fa-border-circle" [icon]="faSackDollar"></fa-icon>
+    </a>
+    </li>
+    <li><a href="#" class="nav-link nav-option">Home</a></li>
+    <li><a href="#" class="nav-link nav-option">Features</a></li>
+    <li><a href="#" class="nav-link nav-option">Premium</a></li>
+    <li><a href="#" class="nav-link nav-option">Contact</a></li>
+  </ul>
+
+  <div class="text-end">
+    <button type="button" class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#sign-in-modal">
+      Sign in
+    </button>
+    <button type="button" class="btn btn-warning sign-up-btn" data-bs-toggle="modal" data-bs-target="#registerModal">
+      Sign up
+    </button>
+  </div>
+  <app-sign-in-modal></app-sign-in-modal>
+  <app-sign-up-modal></app-sign-up-modal>
+</div>
+

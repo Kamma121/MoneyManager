@@ -2,6 +2,7 @@ package com.moneymanager.backend.auth;
 
 import com.moneymanager.backend.config.JwtService;
 import com.moneymanager.backend.enums.Role;
+import com.moneymanager.backend.exception.UserAlreadyExistException;
 import com.moneymanager.backend.model.User;
 import com.moneymanager.backend.repo.UserRepo;
 import lombok.RequiredArgsConstructor;
@@ -21,10 +22,13 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    public AuthenticationResponse register(RegisterRequest request) {
+    public AuthenticationResponse register(RegisterRequest request) throws UserAlreadyExistException {
+        if(userRepo.findByEmail(request.getEmail()).isPresent()){
+            throw new UserAlreadyExistException();
+        }
         User user = User.builder()
                 .firstName(request.getFirstName())
-                .lastName(request.getFirstName())
+                .lastName(request.getLastName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.FREE)
