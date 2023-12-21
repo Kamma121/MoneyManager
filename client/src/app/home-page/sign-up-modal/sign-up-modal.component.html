@@ -19,24 +19,35 @@
           <div class="mb-3">
             <label for="email" class="form-label text-start">E-mail</label>
             <input type="text" class="form-control" id="email" placeholder="Enter your e-mail" name = "email" [(ngModel)]="email" required>
+            <div *ngIf="!isValidEmail(email) && email.length != 0" class="alert alert-danger">
+              Email must be valid.
+            </div>
           </div>
           <div class="mb-3">
             <label for="password-register" class="form-label text-start">Password</label>
             <input type="password" class="form-control" id="password-register" placeholder="Create a password" name = "password" [(ngModel)]="password" required>
+            <div *ngIf="!isValidPassword(password) && password.length != 0" class="alert alert-danger">
+              Minimum password length is 5.
+            </div>
           </div>
           <div class="mb-3">
             <label for="password-confirm" class="form-label text-start">Confirm password</label>
-            <input type="password" class="form-control" id="password-confirm" placeholder="Confirm your password" name="confirmPassword" [(ngModel)]="confirmPassword" required>
+            <input type="password" class="form-control" id="password-confirm" placeholder="Confirm your password" name="confirmPassword"
+                   [(ngModel)]="confirmPassword" required>
             <div *ngIf="password !==confirmPassword" class="alert alert-danger">
               Passwords must be identical.
             </div>
           </div>
           <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-dark sign-btn" [disabled]="signUpForm.invalid">Sign up</button>
+            <button type="submit" class="btn btn-dark sign-btn" [disabled]="signUpForm.invalid || password !== confirmPassword
+            || !isValidEmail(email) || !isValidPassword(password)">Sign up</button>
+          </div>
+          <div *ngIf="userExist" class="alert alert-danger">
+            Account is already assigned to this email.
           </div>
         </form>
         <p class="create-redirect">Already have an account? <a href="" class="redirect-link" data-bs-toggle="modal"
-                                                               data-bs-target="#loginModal">Sign in</a></p>
+                                                               data-bs-target="#sign-in-modal">Sign in</a></p>
       </div>
     </div>
   </div>

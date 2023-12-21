@@ -13,16 +13,14 @@ export class SignUpModalComponent {
   email: string = "";
   password: string = "";
   confirmPassword: string = "";
-  loginError: string = "";
+  userExist:boolean = false;
+
 
   constructor(private authService: AuthenticationService, private router: Router) {
   }
 
   onSubmitSignUp() {
-    if (this.confirmPassword !== this.password) {
-
-    }
-
+      this.userExist = false;
     this.authService.signUp(this.firstName, this.lastName, this.email, this.password).subscribe({
       next: (response: any) => {
         localStorage.setItem('token', response.token);
@@ -32,10 +30,18 @@ export class SignUpModalComponent {
         }
         this.router.navigate(['/dashboard']);
       },
-      error: (error) => {
-        this.loginError = error.error;
-        console.log(this.loginError);
+      error: () => {
+        this.userExist = true;
       }
     })
+  }
+
+  isValidPassword(password: string): boolean {
+    return password.length > 4;
+  }
+
+  isValidEmail(email: string): boolean {
+    const regex = new RegExp('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$');
+    return regex.test(email);
   }
 }

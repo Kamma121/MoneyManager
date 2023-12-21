@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {AuthenticationService} from "../../authentication.service";
 import {Router} from "@angular/router";
 
-
 @Component({
   selector: 'app-sign-in-modal',
   templateUrl: './sign-in-modal.component.html',
@@ -35,7 +34,6 @@ export class SignInModalComponent{
       error: (error) => {
         this.loginError = error.error;
         if (this.loginError.includes('not found')) {
-          this.invalidPassword = true;
           this.invalidEmail = true;
         } else if (this.loginError.includes('password')) {
           this.invalidPassword = true;
