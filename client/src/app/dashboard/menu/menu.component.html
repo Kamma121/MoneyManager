@@ -1,0 +1,42 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white" id="side-bar">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <span class="fs-4">MoneyManager <fa-icon class="fa-border-circle" [icon]="faSackDollar"></fa-icon></span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li>
+            <a routerLink="overview" routerLinkActive="active" class="nav-link">
+                <fa-icon class="fa-border-circle" [icon]="dashboardIcon"></fa-icon>
+                Dashboard
+            </a>
+        </li>
+        <li>
+            <a routerLink="expenses" routerLinkActive="active" class="nav-link">
+                <fa-icon class="fa-border-circle" [icon]="expenseIcon"></fa-icon>
+                Expenses
+            </a>
+        </li>
+        <li>
+            <a routerLink="earnings" routerLinkActive="active" class="nav-link">
+                <fa-icon class="fa-border-circle" [icon]="earningsIcon"></fa-icon>
+                Earnings
+            </a>
+        </li>
+        <li>
+            <a routerLink="savings" routerLinkActive="active" class="nav-link">
+                <fa-icon class="fa-border-circle" [icon]="savingsIcon"></fa-icon>
+                Savings
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link ">
+                <fa-icon class="fa-border-circle" [icon]="getPremiumIcon"></fa-icon>
+                Get Premium
+            </a>
+        </li>
+    </ul>
+    <hr>
+    <a (click)="onSignOut()" class="nav-link" id="sign-out">
+        <fa-icon class="fa-border-circle" [icon]="signOutIcon"></fa-icon>
+        Sign out</a>
+</div>

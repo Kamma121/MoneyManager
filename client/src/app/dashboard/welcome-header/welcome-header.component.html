@@ -1,0 +1,19 @@
+<div id="welcome-section" class="flex-row">
+  <h2>Good day to reach your goals, {{user?.firstName}}!</h2>
+  <span><fa-icon class="fa-border-circle text-white" [icon]="calendarIcon"></fa-icon>
+    {{ currentDate | date: 'MMM d, y' }}</span>
+  <div class="dropdown text-end">
+    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle text-white" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="true">
+      <fa-icon class="fa-border-circle text-white" [icon]="userIcon"></fa-icon> {{user?.firstName}} {{user?.lastName}}
+    </a>
+<!--    <p>{{user?.firstName}} {{user?.lastName}}</p>-->
+    <ul class="dropdown-menu text-small text-white" aria-labelledby="dropdownUser1" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 34px);" data-popper-placement="bottom-start">
+      <li><a class="dropdown-item" href="#">Profile</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="#">
+        <fa-icon class="fa-border-circle" [icon]="signOutIcon"></fa-icon>
+        Sign out</a></li>
+    </ul>
+  </div>
+</div>
+

@@ -1,0 +1,29 @@
+#side-bar{
+    background-color:  #363658;
+    font-family: "Lato Semibold";
+    font-size: 17px;
+    height: 100vh;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.nav-link{
+    color:#c3c3d2;
+
+}
+.nav-link:hover{
+    color:white;
+}
+.active{
+    background-color: #817cd4 !important;
+}
+.active{
+    position: relative;
+}
+#sign-out{
+    padding: 0px 16px;
+}
+a:hover{
+    cursor: pointer;
+}
+#side-bar span{
+  font-family: 'Righteous', sans-serif;
+}

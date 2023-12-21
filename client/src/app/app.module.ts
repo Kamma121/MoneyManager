@@ -14,6 +14,12 @@ import { SignUpModalComponent } from './home-page/sign-up-modal/sign-up-modal.co
 import { CarouselComponent } from './home-page/carousel/carousel.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { MenuComponent } from './dashboard/menu/menu.component';
+import { OverviewComponent } from './dashboard/overview/overview.component';
+import { ExpensesComponent } from './dashboard/expenses/expenses.component';
+import { EarningsComponent } from './dashboard/earnings/earnings.component';
+import { SavingsComponent } from './dashboard/savings/savings.component';
+import { WelcomeHeaderComponent } from './dashboard/welcome-header/welcome-header.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +29,13 @@ import {HttpClientModule} from "@angular/common/http";
     NavigationBarComponent,
     SignInModalComponent,
     SignUpModalComponent,
-    CarouselComponent
+    CarouselComponent,
+    MenuComponent,
+    OverviewComponent,
+    ExpensesComponent,
+    EarningsComponent,
+    SavingsComponent,
+    WelcomeHeaderComponent
   ],
     imports: [
         BrowserModule,
