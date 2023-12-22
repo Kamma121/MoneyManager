@@ -5,6 +5,7 @@ import {
   faCalendarCheck,
   faRightFromBracket
 } from "@fortawesome/free-solid-svg-icons";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-welcome-header',
@@ -12,9 +13,17 @@ import {
   styleUrls: ['./welcome-header.component.css']
 })
 export class WelcomeHeaderComponent {
+
+  constructor(private router:Router) {}
+
+
   @Input() user: User | null = null;
   currentDate = new Date();
   protected readonly userIcon = faCircleUser;
   protected readonly calendarIcon = faCalendarCheck;
   protected readonly signOutIcon = faRightFromBracket;
+  onSignOut():void{
+    localStorage.removeItem('token');
+    this.router.navigate(['/'])
+  }
 }

@@ -11,7 +11,7 @@
         <fa-icon class="fa-border-circle" [icon]="userIcon"></fa-icon>
         Profile</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">
+      <li><a class="dropdown-item" (click)="onSignOut()">
         <fa-icon class="fa-border-circle" [icon]="signOutIcon"></fa-icon>
         Sign out</a></li>
     </ul>

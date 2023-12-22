@@ -8,7 +8,12 @@ app-menu{
 }
 app-welcome-header{
   position: absolute;
-  right:10vh;
   top:2vh;
+  left:30vw;
+  right:30vh;
+}
+#dashboard-main-section{
+  position: absolute;
+  top:15vh;
   left:50vh;
 }

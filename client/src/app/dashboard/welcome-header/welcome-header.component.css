@@ -49,3 +49,6 @@ h2 {
 .dropdown:hover #profile-dropdown {
   color: #212529;
 }
+a:hover{
+  cursor: pointer;
+}
