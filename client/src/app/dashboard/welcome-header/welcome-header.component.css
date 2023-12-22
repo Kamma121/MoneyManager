@@ -12,24 +12,40 @@
 .flex-row {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   width: 100%;
   gap: 1rem;
   white-space: nowrap;
 }
 
-#dropdownUser1 {
+#profile-dropdown {
   margin-left: auto;
+  color:white;
 }
 
 h2 {
   margin: 0;
-  font-size: 1.5rem;
-  font-family: "Lato Semibold", SansSerif;
+  font-size: 1.4rem;
+  font-family: "Lato";
 }
 
 #welcome-section span,
 #welcome-section .dropdown {
   font-size: 1.4rem;
-  font-family: "Lato Semibold";
+  font-family: "Lato";
+  /*font-weight: 400;*/
+
+}
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-item:hover{
+  background-color: #c1c1d0;
+  transition: 0.1s ease-in-out;
+}
+#profile-dropdown:hover{
+  color:#212529;
+}
+.dropdown:hover #profile-dropdown {
+  color: #212529;
 }
