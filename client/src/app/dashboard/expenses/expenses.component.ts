@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {faCaretLeft, faCaretRight, faDownload, faPlus} from "@fortawesome/free-solid-svg-icons";
 import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
 
@@ -7,13 +7,14 @@ import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
   templateUrl: './expenses.component.html',
   styleUrls: ['./expenses.component.css']
 })
-export class ExpensesComponent {
+export class ExpensesComponent{
 
   currentDate: Date = new Date();
   protected readonly leftIcon: IconDefinition = faCaretLeft;
   protected readonly rightIcon: IconDefinition = faCaretRight;
   protected readonly downloadIcon: IconDefinition = faDownload;
   protected readonly plusIcon: IconDefinition = faPlus;
+  categories:string[] = ['House & Bills','Food & Groceries', 'Transport', 'Entertainment & Education', 'Clothing & Personal care', 'Other'];
 
 
   get displayMonthYear(): string {

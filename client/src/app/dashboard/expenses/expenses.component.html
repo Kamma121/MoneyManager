@@ -14,5 +14,32 @@
       <p>Export Data</p>
     </div>
   </header>
+  <div class="expenses-summary">
+    <div id="cards">
+      <div class="expense-card" *ngFor="let category of categories">
+        <img src="../../../assets/images/{{category}}.png" alt="{{category}} icon">
+        <p class="category-name">{{category}}</p>
+        <hr>
+        <div class = "expense">
+          <p>18.12</p>
+          <p>Christmas Gift</p>
+          <p>100$</p>
+        </div>
+        <div class = "expense">
+          <p>18.12</p>
+          <p>Christmas Gift</p>
+          <p>100$</p>
+        </div>
+        <div class = "expense">
+          <p>18.12</p>
+          <p>Christmas Gift</p>
+          <p>100$</p>
+        </div>
+        <a class="view-all">View all...</a>
+      </div>
+    </div>
+    <div id="expense-chart" style="width: 400px;height: 400px">
+    </div>
+  </div>
 </div>
 

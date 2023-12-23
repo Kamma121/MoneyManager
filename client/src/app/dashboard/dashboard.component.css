@@ -11,5 +11,6 @@ app-menu {
 #dashboard-main-section {
   position: absolute;
   top: 3vh;
-  left: 50vh;
+  left: 19vw;
+  right:5vw;
 }

@@ -1,6 +1,6 @@
 #expenses-section {
-  width: 73vw;
-  height: 80vh;
+  width: 78vw;
+  height: 95vh;
   background-color: #363658;
   border-radius: 15px;
   box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
@@ -76,6 +76,56 @@ fa-icon:hover {
   transition: 0.2s ease-in-out;
 }
 
-.plus {
-  font-weight: lighter;
+.expenses-summary {
+  display: flex;
+}
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.expense-card {
+  font-family: "Lato";
+  background-color: white;
+  padding: 5px;
+  border-radius: 15px;
+  box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: calc(33.33% - 20px);
+  margin: 10px;
+  box-sizing: border-box;
+}
+.expense-card p{
+  margin:0;
+}
+img {
+  max-width: 100px;
+  align-self: center;
+}
+
+hr {
+  border: 1px solid black;
+  margin: 5px 0;
+  width: 90%;
+}
+
+.expense {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-top:5px;
+}
+.view-all{
+  text-decoration: none;
+}
+.view-all:hover{
+  cursor: pointer;
+}
+.category-name{
+  margin:0;
 }
