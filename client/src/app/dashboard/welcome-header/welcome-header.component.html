@@ -1,6 +1,6 @@
 <div id="welcome-section" class="flex-row">
   <h2>Good day to reach your goals, {{user?.firstName}}!</h2>
-  <span><fa-icon class="fa-border-circle text-white" [icon]="calendarIcon"></fa-icon>
+  <span><fa-icon class="text-white" [icon]="calendarIcon"></fa-icon>
     {{ currentDate | date: 'MMM d, y' }}</span>
   <div class="dropdown text-end">
     <a  class="d-block text-decoration-none dropdown-toggle" id="profile-dropdown" data-mdb-toggle="dropdown" aria-expanded="false">
@@ -8,11 +8,11 @@
     </a>
     <ul class="dropdown-menu text-small " aria-labelledby="profile-dropdown"  data-popper-placement="bottom-start">
       <li><a class="dropdown-item" href="#">
-        <fa-icon class="fa-border-circle" [icon]="userIcon"></fa-icon>
+        <fa-icon [icon]="userIcon"></fa-icon>
         Profile</a></li>
       <li><hr class="dropdown-divider"></li>
       <li><a class="dropdown-item" (click)="onSignOut()">
-        <fa-icon class="fa-border-circle" [icon]="signOutIcon"></fa-icon>
+        <fa-icon [icon]="signOutIcon"></fa-icon>
         Sign out</a></li>
     </ul>
   </div>
