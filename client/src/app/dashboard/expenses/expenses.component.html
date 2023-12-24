@@ -20,25 +20,40 @@
         <img src="../../../assets/images/{{category}}.png" alt="{{category}} icon">
         <p class="category-name">{{category}}</p>
         <hr>
-        <div class = "expense">
-          <p>18.12</p>
-          <p>Christmas Gift</p>
-          <p>100$</p>
-        </div>
-        <div class = "expense">
-          <p>18.12</p>
-          <p>Christmas Gift</p>
-          <p>100$</p>
-        </div>
-        <div class = "expense">
-          <p>18.12</p>
-          <p>Christmas Gift</p>
-          <p>100$</p>
-        </div>
-        <a class="view-all">View all...</a>
+        <ng-container *ngIf="expensesByCategory[category]?.length; else noExpenses">
+          <div class="expense" *ngFor="let expense of expensesByCategory[category] | slice:0:3">
+            <p>{{ expense.date | date: 'dd.MM' }}</p>
+            <p>{{ expense.message }}</p>
+            <p>{{ expense.amount }}$</p>
+          </div>
+          <a class="view-all">View all...</a>
+        </ng-container>
+
+        <ng-template #noExpenses>
+          <p>No expenses yet.</p>
+        </ng-template>
       </div>
     </div>
-    <div id="expense-chart" style="width: 400px;height: 400px">
+    <div id="expense-chart">
+      <ngx-charts-pie-chart
+        [view]="[400, 300]"
+        [scheme]="colorScheme"
+        [results]="data"
+        [legend]="true"
+        [legendPosition]="below"
+        [labels]="false"
+        [doughnut]="true"
+        [gradient]="false">
+        <ng-template #tooltipTemplate let-model="model">
+          <div style="padding:10px; text-align:center;">
+            <span>{{model.name}}: ${{model.value}}</span>
+          </div>
+        </ng-template>
+      </ngx-charts-pie-chart>
+      <div class="center-label">
+        <p class="total-spent">${{totalExpenses}}</p>
+        <p>Spent this month</p>
+      </div>
     </div>
   </div>
 </div>

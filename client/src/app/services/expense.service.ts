@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {User} from "./shared/User";
+import {User} from "../shared/User";
+import {Expense} from "../shared/Expense";
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class ExpenseService {
 
   constructor(private http:HttpClient) { }
 
-  getUser() {
+  getAllExpenses(){
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       })
     };
-    return this.http.get<User>('http://localhost:8080/api/user',httpOptions);
+    return this.http.get<Expense[]>('http://localhost:8080/api/expenses',httpOptions);
   }
 }

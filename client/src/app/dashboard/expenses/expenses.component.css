@@ -96,12 +96,16 @@ fa-icon:hover {
   flex-direction: column;
   align-items: center;
   flex-basis: calc(33.33% - 20px);
+  max-height: 350px;
   margin: 10px;
   box-sizing: border-box;
+  overflow: hidden;
 }
-.expense-card p{
-  margin:0;
+
+.expense-card p {
+  margin: 0;
 }
+
 img {
   max-width: 100px;
   align-self: center;
@@ -115,17 +119,50 @@ hr {
 
 .expense {
   display: flex;
+  flex-grow: 1;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  margin-top:5px;
+  margin-top: 5px;
 }
-.view-all{
+
+.view-all {
   text-decoration: none;
 }
-.view-all:hover{
+
+.view-all:hover {
   cursor: pointer;
 }
-.category-name{
-  margin:0;
+
+.category-name {
+  margin: 0;
+}
+.chart-legend .legend-labels {
+  display: flex;
+  flex-direction: column !important;
+  font-size:15px;
+}
+.legend-title{
+  display:none !important;
+}
+#expense-chart{
+  position: relative;
+}
+.center-label {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color:white;
+  font-size:16px;
+}
+
+.total-spent {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+.legend-label-text{
+  font-size:14px !important;
+  color:white;
 }

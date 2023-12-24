@@ -20,6 +20,7 @@ import { ExpensesComponent } from './dashboard/expenses/expenses.component';
 import { EarningsComponent } from './dashboard/earnings/earnings.component';
 import { SavingsComponent } from './dashboard/savings/savings.component';
 import { WelcomeHeaderComponent } from './dashboard/welcome-header/welcome-header.component';
+import {NgxChartsModule} from "@swimlane/ngx-charts";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { WelcomeHeaderComponent } from './dashboard/welcome-header/welcome-heade
         NgbModule,
         FontAwesomeModule,
         FormsModule,
-        HttpClientModule
+        HttpClientModule,
+        NgxChartsModule
     ],
   providers: [],
   bootstrap: [AppComponent]
