@@ -23,9 +23,11 @@ public class ExpenseController {
         return ResponseEntity.ok(expenseService.getAllExpenses(principal.getName()));
     }
     @PostMapping("/expense/add")
-    public ResponseEntity<Expense> addExpense(@RequestBody Expense expense,Principal principal){
-        expense.setUser(userService.getUser(principal.getName()));
-        return ResponseEntity.ok(expenseService.addExpense(expense));
+    public ResponseEntity<List<Expense>> addExpense(@RequestBody List<Expense> expenses,Principal principal){
+        for(Expense expense:expenses) {
+            expense.setUser(userService.getUser(principal.getName()));
+        }
+        return ResponseEntity.ok(expenseService.addExpenses(expenses));
     }
     @PutMapping("/expense/{expenseId}")
     public ResponseEntity<Expense> updateExpense(@PathVariable Long expenseId,@RequestBody Expense expense){

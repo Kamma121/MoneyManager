@@ -17,8 +17,8 @@ public class ExpenseServiceImpl implements ExpenseService {
     private final ExpenseRepo expenseRepo;
 
     @Override
-    public Expense addExpense(Expense expense) {
-        return expenseRepo.save(expense);
+    public List<Expense> addExpenses(List<Expense> expenses) {
+        return expenseRepo.saveAll(expenses);
     }
 
     @Override

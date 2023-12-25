@@ -25,7 +25,7 @@ public class Expense {
     @Column(name="message")
     private String message;
     @Column(name = "amount")
-    private int amount;
+    private double amount;
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;

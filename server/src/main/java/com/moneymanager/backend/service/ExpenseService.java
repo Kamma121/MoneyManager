@@ -5,7 +5,7 @@ import com.moneymanager.backend.model.Expense;
 import java.util.List;
 
 public interface ExpenseService {
-    Expense addExpense(Expense expense);
+    List<Expense> addExpenses(List<Expense> expense);
 
     List<Expense> getAllExpenses(String email);
 

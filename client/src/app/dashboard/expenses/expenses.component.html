@@ -1,6 +1,6 @@
 <div id="expenses-section">
   <header>
-    <button id="add-expense" class="btn">
+    <button id="add-expense" class="btn" data-bs-toggle="modal" data-bs-target="#add-expense-modal">
       <fa-icon class="plus" [icon]="plusIcon"></fa-icon>
       Add expense
     </button>
@@ -56,5 +56,6 @@
       </div>
     </div>
   </div>
+  <app-add-expense-modal></app-add-expense-modal>
 </div>
 

@@ -10,6 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 @SpringBootApplication
 public class MoneymanagerBackendApplication {
@@ -24,14 +26,14 @@ public class MoneymanagerBackendApplication {
 			userService.saveUser(new User("Ashley", "Austin", "test@gmail.com", "test123"));
 			userService.saveUser(new User("Mary", "Smith", "mary.smith@outlook.com", "password"));
 			userService.saveUser(new User("Dave", "Morty", "dave121@outlook.com", "password"));
-			expenseService.addExpense(new Expense(null, LocalDate.now(),"House & Bills","House rent",500,userService.getUser("john.doe@gmail.com")));
-			expenseService.addExpense(new Expense(null, LocalDate.now(),"House & Bills","House rent",500,userService.getUser("john.doe@gmail.com")));
-			expenseService.addExpense(new Expense(null, LocalDate.now(),"House & Bills","House rent",500,userService.getUser("john.doe@gmail.com")));
-			expenseService.addExpense(new Expense(null, LocalDate.now(),"Transport","Car payment",200,userService.getUser("john.doe@gmail.com")));
-			expenseService.addExpense(new Expense(null, LocalDate.now(),"Food & Groceries","Groceries",50,userService.getUser("john.doe@gmail.com")));
-			expenseService.addExpense(new Expense(null, LocalDate.now(),"Entertainment & Education","Books",80,userService.getUser("john.doe@gmail.com")));
-			expenseService.addExpense(new Expense(null, LocalDate.now(),"Clothing & Personal care","Levi's jeans",100,userService.getUser("john.doe@gmail.com")));
-			expenseService.addExpense(new Expense(null, LocalDate.now(),"Other","Christmas gift",150,userService.getUser("john.doe@gmail.com")));
+			expenseService.addExpenses(Arrays.asList(new Expense(null, LocalDate.now(),"House & Bills","House rent",500,userService.getUser("john.doe@gmail.com"))));
+			expenseService.addExpenses(Arrays.asList(new Expense(null, LocalDate.now(),"House & Bills","House rent",500,userService.getUser("test@gmail.com"))));
+			expenseService.addExpenses(Arrays.asList(new Expense(null, LocalDate.now(),"House & Bills","Bills",300,userService.getUser("john.doe@gmail.com"))));
+			expenseService.addExpenses(Arrays.asList(new Expense(null, LocalDate.now(),"Transport","Car payment",200,userService.getUser("john.doe@gmail.com"))));
+			expenseService.addExpenses(Arrays.asList(new Expense(null, LocalDate.now(),"Food & Groceries","Groceries",50,userService.getUser("john.doe@gmail.com"))));
+			expenseService.addExpenses(Arrays.asList(new Expense(null, LocalDate.now(),"Entertainment & Education","Books",80,userService.getUser("john.doe@gmail.com"))));
+			expenseService.addExpenses(Arrays.asList(new Expense(null, LocalDate.now(),"Clothing & Personal care","Levi's jeans",100,userService.getUser("john.doe@gmail.com"))));
+			expenseService.addExpenses(Arrays.asList(new Expense(null, LocalDate.now(),"Other","Christmas gift",150,userService.getUser("john.doe@gmail.com"))));
 		};
 	}
 
