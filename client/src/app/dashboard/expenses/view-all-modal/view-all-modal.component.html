@@ -1,0 +1,44 @@
+<div class="modal fade" id="view-all-modal" tabindex="-1" aria-labelledby="viewAllModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl custom-modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Expenses Details</h4>
+        <button type="button" class="btn-close" id="view-all-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label for="category-filter" class="form-label">Category Filter</label>
+        <select id = "category-filter" [(ngModel)]="selectedCategory" (change)="filterExpenses()">
+          <option value="All expenses">All Expenses</option>
+          <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+        </select>
+        <table>
+          <tr>
+            <th>No.</th>
+            <th>Date</th>
+            <th>Message</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Actions</th>
+          </tr>
+          <tr *ngFor="let expense of filteredExpenses; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{expense.date | date:'shortDate'}}</td>
+            <td>{{expense.message}}</td>
+            <td>{{expense.category}}</td>
+            <td>{{expense.amount}}$</td>
+            <td>
+              <div class="buttons">
+                <button type="button" class="btn btn-primary edit-btn">
+                  <fa-icon [icon]="editIcon"></fa-icon>
+                </button>
+                <button type="button" class="btn btn-danger remove-btn" (click)="removeExpense(i)">
+                  <fa-icon [icon]="deleteIcon"></fa-icon>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

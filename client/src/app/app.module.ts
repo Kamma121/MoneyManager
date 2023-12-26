@@ -24,6 +24,7 @@ import {NgxChartsModule} from "@swimlane/ngx-charts";
 import {AddExpenseModalComponent} from './dashboard/expenses/add-expense-modal/add-expense-modal.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ViewAllModalComponent } from './dashboard/expenses/view-all-modal/view-all-modal.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     SavingsComponent,
     WelcomeHeaderComponent,
     AddExpenseModalComponent,
+    ViewAllModalComponent,
   ],
   imports: [
     BrowserModule,

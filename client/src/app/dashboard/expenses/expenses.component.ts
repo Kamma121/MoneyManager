@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {faCaretLeft, faCaretRight, faDownload, faPlus} from "@fortawesome/free-solid-svg-icons";
 import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
 import {Expense} from "../../shared/Expense";
@@ -29,6 +29,8 @@ export class ExpensesComponent implements OnInit {
     domain: ['#ffcec8', '#c8ffd4', '#a6fcfc', '#cbc8ff', '#ffc8fd', '#fff2cc']
   };
   below = LegendPosition.Below;
+  @Output() viewAllModalOpen = new EventEmitter<{ [category: string]: Expense[] }>();
+  selectedCategory: string = '';
 
   constructor(private expenseService: ExpenseService) {
   }
@@ -104,7 +106,7 @@ export class ExpensesComponent implements OnInit {
     doc.text('Money Manager', 10, 10);
     doc.setFontSize(12);
     doc.text(`${this.displayMonthYear} Expenses Report`, 70, 35);
-    const currentMonthExpenses = Object.values(this.expensesByCategory).flat();
+    const currentMonthExpenses: Expense[] = Object.values(this.expensesByCategory).flat();
     currentMonthExpenses.sort((a, b) => {
       if (a.date === null) return 1;
       if (b.date === null) return -1;
@@ -133,6 +135,11 @@ export class ExpensesComponent implements OnInit {
     const textWidth: number = text.length * (textSize / 4);
     doc.text(text, pageWidth - textWidth, finalY);
     doc.save('expenses.pdf');
+  }
+
+  openViewAllModal(category: string): void {
+    this.viewAllModalOpen.emit(this.expensesByCategory);
+    this.selectedCategory = category;
   }
 
 }

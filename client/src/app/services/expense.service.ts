@@ -8,21 +8,28 @@ import {Expense} from "../shared/Expense";
 export class ExpenseService {
 
   constructor(private http:HttpClient) { }
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    })
+  };
 
   getAllExpenses(){
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      })
-    };
-    return this.http.get<Expense[]>('http://localhost:8080/api/expenses',httpOptions);
+    return this.http.get<Expense[]>('http://localhost:8080/api/expenses',this.httpOptions);
   }
   addExpenses(expenses:Expense[]){
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      })
-    };
-    return this.http.post('http://localhost:8080/api/expense/add',expenses,httpOptions);
+    return this.http.post('http://localhost:8080/api/expense/add',expenses,this.httpOptions);
+  }
+
+  deleteExpense(id: number | null) {
+    if(id === null){
+      console.log('Id not found');
+      return null;
+    }else{
+      return this.http.delete(`http://localhost:8080/api/expense/${id}`, {
+        ...this.httpOptions,
+        responseType: 'text'
+      });
+    }
   }
 }

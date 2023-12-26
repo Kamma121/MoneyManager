@@ -26,7 +26,7 @@
             <p>{{ expense.message }}</p>
             <p>{{ expense.amount }}$</p>
           </div>
-          <a class="view-all">View all...</a>
+          <a class="view-all" data-bs-toggle="modal" data-bs-target="#view-all-modal" (click)="openViewAllModal(category)">View all...</a>
         </ng-container>
 
         <ng-template #noExpenses>
@@ -56,6 +56,11 @@
       </div>
     </div>
   </div>
+  <app-view-all-modal [expensesByCategory]="expensesByCategory"
+                      (needRefresh)="refreshExpenses()"
+                      [selectedCategory]="selectedCategory">
+
+  </app-view-all-modal>
   <app-add-expense-modal (expenseAdded)="refreshExpenses()"></app-add-expense-modal>
 </div>
 
