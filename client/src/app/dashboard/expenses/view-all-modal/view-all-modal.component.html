@@ -7,7 +7,7 @@
       </div>
       <div class="modal-body">
         <label for="category-filter" class="form-label">Category Filter</label>
-        <select id = "category-filter" [(ngModel)]="selectedCategory" (change)="filterExpenses()">
+        <select id="category-filter" [(ngModel)]="selectedCategory" (change)="filterExpenses()">
           <option value="All expenses">All Expenses</option>
           <option *ngFor="let category of categories" [value]="category">{{category}}</option>
         </select>
@@ -22,15 +22,44 @@
           </tr>
           <tr *ngFor="let expense of filteredExpenses; let i = index">
             <td>{{i + 1}}</td>
-            <td>{{expense.date | date:'shortDate'}}</td>
-            <td>{{expense.message}}</td>
-            <td>{{expense.category}}</td>
-            <td>{{expense.amount}}$</td>
+            <td>
+              <div *ngIf="editableRow === i; else displayDate">
+                <input type="date" class="form-control" name="date{{i}}" [(ngModel)]="expense.date" required>
+              </div>
+              <ng-template #displayDate>{{expense.date | date:'shortDate'}}</ng-template>
+            </td>
+            <td>
+              <div *ngIf="editableRow === i; else displayMessage">
+                <input type="text" [(ngModel)]="expense.message" required>
+              </div>
+              <ng-template #displayMessage>{{expense.message}}</ng-template>
+            </td>
+            <td>
+              <div *ngIf="editableRow === i; else displayCategory">
+                <select class="form-control" name="category{{i}}" [(ngModel)]="expense.category" required>
+                  <option value="" disabled selected>Select a category</option>
+                  <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+                </select>
+              </div>
+              <ng-template #displayCategory>{{expense.category}}</ng-template>
+            </td>
+            <td>
+              <div *ngIf="editableRow === i; else displayAmount">
+                <input type="text" [(ngModel)]="expense.amount" required>
+              </div>
+              <ng-template #displayAmount>{{expense.amount}}$</ng-template>
+            </td>
             <td>
               <div class="buttons">
-                <button type="button" class="btn btn-primary edit-btn">
+                <button type="button" class="btn btn-primary edit-btn" *ngIf="editableRow !== i; else successButton"
+                        (click)="toggleEdit(i)">
                   <fa-icon [icon]="editIcon"></fa-icon>
                 </button>
+                <ng-template #successButton>
+                  <button type="button" class="btn btn-success" (click)="updateExpense(expense)">
+                    <fa-icon [icon]="successIcon"></fa-icon>
+                  </button>
+                </ng-template>
                 <button type="button" class="btn btn-danger remove-btn" (click)="removeExpense(i)">
                   <fa-icon [icon]="deleteIcon"></fa-icon>
                 </button>

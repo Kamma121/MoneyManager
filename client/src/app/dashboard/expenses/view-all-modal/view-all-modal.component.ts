@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {Expense} from "../../../shared/Expense";
-import {faPencil, faTimes} from "@fortawesome/free-solid-svg-icons";
+import {faCheck, faPencil, faTimes} from "@fortawesome/free-solid-svg-icons";
 import {ExpenseService} from "../../../services/expense.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
@@ -20,6 +20,8 @@ export class ViewAllModalComponent implements OnChanges {
   filteredExpenses: Expense[] = [];
   protected readonly deleteIcon = faTimes;
   protected readonly editIcon = faPencil;
+  protected readonly successIcon = faCheck;
+  editableRow: number = -1;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['selectedCategory']) {
@@ -27,6 +29,9 @@ export class ViewAllModalComponent implements OnChanges {
     }
   }
 
+  toggleEdit(index:number):void{
+    this.editableRow = index;
+  }
   filterExpenses(): void {
     if (this.selectedCategory === 'All expenses') {
       this.filteredExpenses = Object.values(this.expensesByCategory).flat();
@@ -59,5 +64,27 @@ export class ViewAllModalComponent implements OnChanges {
         }
       });
     }
+  }
+
+  updateExpense(expense: Expense) {
+    const closeBtn = document.getElementById('view-all-close');
+    this.expenseService.updateExpense(expense).subscribe({
+        next: () => {
+            if(closeBtn){
+                closeBtn.click();
+            }
+            this.needRefresh.emit();
+            this.editableRow = -1;
+            this.snackBar.open('Successfully edited expense.', 'Close', {
+                duration: 3000,
+                horizontalPosition: 'center',
+                verticalPosition: 'top',
+                panelClass: ['success-snackbar']
+            });
+        },
+        error: (error) => {
+            console.log(error.error);
+        }
+    });
   }
 }

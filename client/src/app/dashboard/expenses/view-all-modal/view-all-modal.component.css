@@ -6,7 +6,10 @@
   width: 100%;
   border-collapse: collapse;
 }
-
+.modal-body table input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+}
 .modal-body th, .modal-body td {
   border: 1px solid #dee2e6;
   padding: 8px;

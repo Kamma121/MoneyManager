@@ -37,6 +37,7 @@ public class ExpenseServiceImpl implements ExpenseService {
         if (expenseOptional.isPresent()) {
             Expense existingExpense = expenseOptional.get();
             existingExpense.setDate(expense.getDate());
+            existingExpense.setMessage(expense.getMessage());
             existingExpense.setCategory(expense.getCategory());
             existingExpense.setAmount(expense.getAmount());
             return expenseRepo.save(existingExpense);
