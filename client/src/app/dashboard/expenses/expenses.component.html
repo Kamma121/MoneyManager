@@ -9,7 +9,7 @@
       <span>{{ displayMonthYear }}</span>
       <fa-icon class="arrow" (click)="changeMonth(1)" [icon]="rightIcon"></fa-icon>
     </div>
-    <div class="export-report">
+    <div class="export-report"  (click)="exportToPdf()">
       <fa-icon [icon]="downloadIcon"></fa-icon>
       <p>Export Data</p>
     </div>
@@ -56,6 +56,6 @@
       </div>
     </div>
   </div>
-  <app-add-expense-modal></app-add-expense-modal>
+  <app-add-expense-modal (expenseAdded)="refreshExpenses()"></app-add-expense-modal>
 </div>
 

@@ -1,10 +1,9 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, Output, ViewEncapsulation} from '@angular/core';
 import {Expense} from "../../../shared/Expense";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {ExpenseService} from "../../../services/expense.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {MAT_DATE_LOCALE} from "@angular/material/core";
-
+import {MAT_DATE_LOCALE} from "@angular/material/core"
 @Component({
     selector: 'app-add-expense-modal',
     templateUrl: './add-expense-modal.component.html',
@@ -23,13 +22,15 @@ export class AddExpenseModalComponent {
     categories: string[] = ['House & Bills', 'Food & Groceries', 'Transport', 'Entertainment & Education', 'Clothing & Personal care', 'Other'];
     userExpenses: Expense[] = [this.createEmptyExpense()];
     protected readonly deleteIcon = faTimes;
+    @Output() expenseAdded = new EventEmitter<void>();
 
-    createEmptyExpense(): Expense {
+
+  createEmptyExpense(): Expense {
         return {
             id: null,
             date: null,
             message: '',
-            category: null,
+            category: '',
             amount: null
         };
     }
@@ -44,7 +45,7 @@ export class AddExpenseModalComponent {
 
     showSuccessMessage(message: string): void {
         this.snackBar.open(message, 'Close', {
-            duration: 2000,
+            duration: 3000,
             horizontalPosition: 'center',
             verticalPosition: 'top',
             panelClass: ['success-snackbar']
@@ -65,6 +66,7 @@ export class AddExpenseModalComponent {
                 }
                 this.userExpenses = [];
                 this.addExpense();
+                this.expenseAdded.emit();
             },
             error: (error) => {
                 console.log(error.error);

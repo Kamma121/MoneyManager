@@ -18,7 +18,7 @@
               </div>
               <div class="col-md-3">
                 <select class="form-control" name="category{{i}}"  [(ngModel)]="expense.category" required>
-                  <option value="" disabled selected>Select category</option>
+                  <option value="" disabled selected>Select a category</option>
                   <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
                 </select>
               </div>
