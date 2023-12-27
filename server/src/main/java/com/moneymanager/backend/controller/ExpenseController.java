@@ -30,11 +30,12 @@ public class ExpenseController {
         return ResponseEntity.ok(expenseService.addExpenses(expenses));
     }
     @PutMapping("/expense/{expenseId}")
-    public ResponseEntity<Expense> updateExpense(@PathVariable Long expenseId,@RequestBody Expense expense){
+    public ResponseEntity<Expense> updateExpense(@PathVariable Long expenseId,@RequestBody Expense expense,Principal principal){
+        expense.setUser(userService.getUser(principal.getName()));
         return ResponseEntity.ok(expenseService.updateExpense(expenseId,expense));
     }
     @DeleteMapping("/expense/{expenseId}")
-    public ResponseEntity<?> addExpense(@PathVariable Long expenseId,Principal principal) throws AccessDeniedException {
+    public ResponseEntity<?> deleteExpense(@PathVariable Long expenseId,Principal principal) throws AccessDeniedException {
         if(!principal.getName().equals(expenseService.getExpenseById(expenseId).getUser().getUsername())){
             throw new AccessDeniedException("You don't have access to this resource");
         }

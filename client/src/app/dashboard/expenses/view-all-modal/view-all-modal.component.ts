@@ -29,7 +29,7 @@ export class ViewAllModalComponent implements OnChanges {
     }
   }
 
-  toggleEdit(index:number):void{
+  toggleEdit(index: number): void {
     this.editableRow = index;
   }
   filterExpenses(): void {
