@@ -32,8 +32,7 @@ export class ExpensesComponent implements OnInit {
   @Output() viewAllModalOpen = new EventEmitter<{ [category: string]: Expense[] }>();
   selectedCategory: string = '';
 
-  constructor(private expenseService: ExpenseService) {
-  }
+  constructor(private expenseService: ExpenseService) {}
 
   ngOnInit(): void {
     this.refreshExpenses();

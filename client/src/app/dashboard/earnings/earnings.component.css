@@ -1,0 +1,71 @@
+#earnings-section {
+  width: 78vw;
+  height: 95vh;
+  background-color: #363658;
+  border-radius: 15px;
+  box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+}
+
+#add-earning {
+  margin: 1rem;
+  background-color: #77DD77;
+  color: #333333;
+  font-size: 18px;
+}
+
+#add-earning:hover {
+  background-color: #68C168;
+  color: #FFFFFF;
+}
+
+#earnings-section header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 1rem;
+  border-bottom: 1px solid #c3c3d2;
+}
+
+.earnings-list-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 400px;
+  overflow-y: auto;
+  gap: 10px;
+  max-width: 60%;
+  margin: 1rem;
+}
+
+.earning-entry {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.earning-entry > div {
+  flex: 1;
+  text-align: center;
+  padding: 0 5px;
+}
+.earning-entry > div:first-child {
+  text-align:left;
+}
+.earning-entry > div:last-child {
+  text-align:right;
+}
+
+.earning-entry.header {
+  font-weight: bold;
+  box-shadow: none;
+  background-color: #363658;
+  color:white;
+}
+.earning:hover{
+  cursor: pointer;
+  background-color: #b3b3b3;
+  transition: background-color 0.1s ease-in-out;
+}

@@ -1,1 +1,29 @@
-<p>earnings works!</p>
+<div id="earnings-section">
+  <header>
+    <button id="add-earning" class="btn" data-bs-toggle="modal" data-bs-target="#add-expense-modal">
+      <fa-icon class="plus" [icon]="plusIcon"></fa-icon>
+      Add earning
+    </button>
+    <div class="month-selector">
+      <fa-icon class="arrow" (click)="changeMonth(-1)" [icon]="leftIcon"></fa-icon>
+      <span>{{ displayMonthYear }}</span>
+      <fa-icon class="arrow" (click)="changeMonth(1)" [icon]="rightIcon"></fa-icon>
+    </div>
+    <div class="export-report">
+      <fa-icon [icon]="downloadIcon"></fa-icon>
+      <p>Export Data</p>
+    </div>
+  </header>
+  <div class="earnings-list-container">
+    <div class="earning-entry header">
+      <div>Date</div>
+      <div>Source</div>
+      <div>Amount</div>
+    </div>
+    <div class="earning-entry earning" *ngFor="let earning of earningsByDate">
+      <div>{{ earning.date | date: 'shortDate' }}</div>
+      <div>{{ earning.source }}</div>
+      <div>{{ earning.amount | currency }}</div>
+    </div>
+  </div>
+</div>
