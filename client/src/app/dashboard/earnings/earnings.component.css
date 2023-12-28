@@ -4,6 +4,7 @@
   background-color: #363658;
   border-radius: 15px;
   box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 #add-earning {
@@ -22,9 +23,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  align-content: center;
   margin: 0 1rem;
   border-bottom: 1px solid #c3c3d2;
+  z-index: 3;
 }
 
 .earnings-list-container {
@@ -33,8 +34,12 @@
   max-height: 400px;
   overflow-y: auto;
   gap: 10px;
-  max-width: 60%;
   margin: 1rem;
+  flex: 1;
+}
+.earnings-list-container >p{
+  text-align: center;
+  color:white;
 }
 
 .earning-entry {
@@ -46,26 +51,71 @@
   border-radius: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .earning-entry > div {
   flex: 1;
   text-align: center;
   padding: 0 5px;
 }
+
 .earning-entry > div:first-child {
-  text-align:left;
-}
-.earning-entry > div:last-child {
-  text-align:right;
+  text-align: left;
 }
 
-.earning-entry.header {
+.earning-entry > div:last-child {
+  text-align: right;
+}
+
+.earning-entry.earning-info {
   font-weight: bold;
   box-shadow: none;
   background-color: #363658;
-  color:white;
+  color: white;
+  font-size: 21px;
 }
-.earning:hover{
+
+.earning:hover {
   cursor: pointer;
   background-color: #b3b3b3;
   transition: background-color 0.1s ease-in-out;
+}
+
+.earnings-details {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+
+}
+
+.earning-info {
+  border-radius: 0;
+  border-bottom: 1px solid #c3c3d2;
+}
+
+.chart {
+  width: 50%;
+  margin-left: 1rem;
+  color: white;
+  padding:20px 0 0 15px;
+}
+
+.chart-legend ul{
+  margin-top:10px !important;
+  padding-top:10px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.legend-title {
+  display: none !important;
+}
+
+.vertical-line {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  border-left: 1px solid #c3c3d2;
+  height: 80%;
+  z-index: 1;
 }

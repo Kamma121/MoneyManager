@@ -3,6 +3,7 @@ import {faCaretLeft, faCaretRight, faDownload, faPlus} from "@fortawesome/free-s
 import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
 import {EarningService} from "../../services/earning.service";
 import {Earning} from "../../shared/Earning";
+import {LegendPosition} from "@swimlane/ngx-charts";
 
 @Component({
   selector: 'app-earnings',
@@ -19,11 +20,14 @@ export class EarningsComponent implements OnInit {
   protected readonly downloadIcon: IconDefinition = faDownload;
   protected readonly plusIcon: IconDefinition = faPlus;
   currentDate: Date = new Date();
+  totalEarnings: number = 0;
   earnings: Earning[] = [];
   earningsByDate: Earning[] = [];
-
-  sources: Set<string> = new Set<string>();
-
+  earningsData: any[] = [];
+  colorScheme: any = {
+    domain: ['#ffc8fd','#cbc8ff','#ffcec8', '#c8ffd4', '#a6fcfc','#fff2cc']
+  };
+  below = LegendPosition.Below;
   ngOnInit(): void {
     this.refreshEarnings();
   }
@@ -38,6 +42,7 @@ export class EarningsComponent implements OnInit {
   changeMonth(amount: number): void {
     this.currentDate = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() + amount, 1);
     this.groupEarningsByDate();
+    this.processEarningsData();
   }
 
   refreshEarnings() {
@@ -45,6 +50,7 @@ export class EarningsComponent implements OnInit {
       next: (response: any) => {
         this.earnings = response;
         this.groupEarningsByDate();
+        this.processEarningsData();
       },
       error: (error: any) => {
         console.log(error.error);
@@ -64,5 +70,20 @@ export class EarningsComponent implements OnInit {
     }
     const d1 = new Date(date1);
     return d1.getMonth() === date2.getMonth() && d1.getFullYear() === date2.getFullYear();
+  }
+
+  processEarningsData() {
+    const earningsBySource = new Map<string, number>();
+    this.totalEarnings = 0;
+    this.earningsByDate.forEach(earning => {
+      this.totalEarnings += earning.amount || 0;
+      earningsBySource.set(earning.source || '',
+        (earningsBySource.get(earning.source || '') || 0) + (earning.amount || 0));
+    });
+
+    this.earningsData = Array.from(earningsBySource).map(([source, amount]) => ({
+      name: source,
+      value: amount
+    }));
   }
 }

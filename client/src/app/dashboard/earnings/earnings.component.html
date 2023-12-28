@@ -14,16 +14,45 @@
       <p>Export Data</p>
     </div>
   </header>
-  <div class="earnings-list-container">
-    <div class="earning-entry header">
-      <div>Date</div>
-      <div>Source</div>
-      <div>Amount</div>
+  <div class="vertical-line"></div>
+  <div class="earnings-details">
+    <div class="earnings-list-container">
+      <div class="earning-entry earning-info">
+        <div>Date</div>
+        <div>Source</div>
+        <div>Amount</div>
+      </div>
+      <ng-container *ngIf="earningsByDate?.length;else noEarnings">
+        <div class="earning-entry earning" *ngFor="let earning of earningsByDate">
+          <div>{{ earning.date | date: 'shortDate' }}</div>
+          <div>{{ earning.source }}</div>
+          <div>{{ earning.amount | currency }}</div>
+        </div>
+      </ng-container>
+      <ng-template #noEarnings>
+        <p>No earnings yet.</p>
+      </ng-template>
     </div>
-    <div class="earning-entry earning" *ngFor="let earning of earningsByDate">
-      <div>{{ earning.date | date: 'shortDate' }}</div>
-      <div>{{ earning.source }}</div>
-      <div>{{ earning.amount | currency }}</div>
+    <div class="chart" >
+      <ngx-charts-bar-vertical *ngIf="earningsByDate?.length"
+        [view]="[500, 300]"
+        [scheme]="colorScheme"
+        [results]="earningsData"
+        [xAxis]="true"
+        [yAxis]="true"
+        [legend]="true"
+        [legendPosition]="below"
+        [showXAxisLabel]="true"
+        [showYAxisLabel]="true"
+        [xAxisLabel]="'Source'"
+        [yAxisLabel]="'Amount'"
+        style="fill: white;">
+        <ng-template #tooltipTemplate let-model="model">
+          <div style="padding:10px; text-align:center;">
+            <span>{{model.name}}: {{model.value | currency}}</span>
+          </div>
+        </ng-template>
+      </ngx-charts-bar-vertical>
     </div>
   </div>
 </div>
