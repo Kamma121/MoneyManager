@@ -1,0 +1,59 @@
+<div class="modal fade" id="earning-details-modal" tabindex="-1" aria-labelledby="earningDetailsModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-lg custom-modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="form-group">
+          <button type="button" id="earning-details-close" class="btn-close" data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+          <div class="modal-header">
+            <h4>Edit earning</h4>
+            <fa-icon class="dollar-glass-icon" [icon]="dollarGlassIcon"></fa-icon>
+          </div>
+          <div id="earning-details-section" *ngIf="earning.id != null">
+            <div class="earning-section-info labels">
+              <div>Date:</div>
+              <div>Source:</div>
+              <div>Amount:</div>
+            </div>
+            <div class="earning-section-info margin-bottom-30p">
+              <div>
+                <div *ngIf="editable; else displayDate" class="align-content-center">
+                  <input class="form-control date-input" type="date" [(ngModel)]="earning.date" required>
+                </div>
+                <ng-template #displayDate>{{ earning.date | date:'shortDate' }}</ng-template>
+              </div>
+              <div class="source-box">
+                <div *ngIf="editable; else displaySource">
+                  <input class="form-control source-input" type="text" [(ngModel)]="earning.source" required>
+                </div>
+                <ng-template #displaySource>{{ earning.source }}</ng-template>
+              </div>
+              <div class="amount-box">
+                <div *ngIf="editable; else displayAmount" class="input-group amount-input">
+                  <input class="form-control " type="number" [(ngModel)]="earning.amount" required>
+                  <span class="input-group-text">$</span>
+                </div>
+                <ng-template #displayAmount>{{ earning.amount | currency }}</ng-template>
+              </div>
+            </div>
+          </div>
+          <div class="buttons">
+            <button class="btn btn-primary" *ngIf="!editable" (click)="editable = true">
+              <fa-icon [icon]="editIcon"></fa-icon>
+              Edit
+            </button>
+            <button class="btn btn-success" *ngIf="editable" (click)="updateEarning(earning)">
+              <fa-icon [icon]="successIcon"></fa-icon>
+              Submit
+            </button>
+            <button class="btn btn-danger" (click)="deleteEarning()">
+              <fa-icon [icon]="deleteIcon"></fa-icon>
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

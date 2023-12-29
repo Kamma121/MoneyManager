@@ -19,4 +19,28 @@ export class EarningService {
   getAllEarnings(){
     return this.http.get<Earning[]>('http://localhost:8080/api/earnings',this.httpOptions);
   }
+  addEarnings(earnings:Earning[]){
+    return this.http.post('http://localhost:8080/api/earning/add',earnings,this.httpOptions);
+  }
+
+  deleteEarning(id: number | null) {
+    if(id === null){
+      console.log('Id not found');
+      return null;
+    }else{
+      return this.http.delete(`http://localhost:8080/api/earning/${id}`, {
+        ...this.httpOptions,
+        responseType: 'text'
+      });
+    }
+  }
+  updateEarning(earning:Earning){
+    const currEarning:Earning = {
+      id:earning.id,
+      date:earning.date,
+      source:earning.source,
+      amount:earning.amount
+    }
+    return this.http.put(`http://localhost:8080/api/earning/${earning.id}`,currEarning,this.httpOptions)
+  }
 }

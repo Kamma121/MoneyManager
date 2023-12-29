@@ -25,6 +25,8 @@ import {AddExpenseModalComponent} from './dashboard/expenses/add-expense-modal/a
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ViewAllModalComponent } from './dashboard/expenses/view-all-modal/view-all-modal.component';
+import { AddEarningModalComponent } from './dashboard/earnings/add-earning-modal/add-earning-modal.component';
+import { EarningDetailsModalComponent } from './dashboard/earnings/earning-details-modal/earning-details-modal.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { ViewAllModalComponent } from './dashboard/expenses/view-all-modal/view-
     WelcomeHeaderComponent,
     AddExpenseModalComponent,
     ViewAllModalComponent,
+    AddEarningModalComponent,
+    EarningDetailsModalComponent,
   ],
   imports: [
     BrowserModule,

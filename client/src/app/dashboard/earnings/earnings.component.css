@@ -119,3 +119,6 @@
   height: 80%;
   z-index: 1;
 }
+#earning-details-open{
+  display:none;
+}

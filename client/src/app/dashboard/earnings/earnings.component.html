@@ -1,6 +1,6 @@
 <div id="earnings-section">
   <header>
-    <button id="add-earning" class="btn" data-bs-toggle="modal" data-bs-target="#add-expense-modal">
+    <button id="add-earning" class="btn" data-bs-toggle="modal" data-bs-target="#add-earning-modal">
       <fa-icon class="plus" [icon]="plusIcon"></fa-icon>
       Add earning
     </button>
@@ -9,7 +9,7 @@
       <span>{{ displayMonthYear }}</span>
       <fa-icon class="arrow" (click)="changeMonth(1)" [icon]="rightIcon"></fa-icon>
     </div>
-    <div class="export-report">
+    <div class="export-report" (click)="exportToPdf()">
       <fa-icon [icon]="downloadIcon"></fa-icon>
       <p>Export Data</p>
     </div>
@@ -23,11 +23,12 @@
         <div>Amount</div>
       </div>
       <ng-container *ngIf="earningsByDate?.length;else noEarnings">
-        <div class="earning-entry earning" *ngFor="let earning of earningsByDate">
+        <div class="earning-entry earning"  *ngFor="let earning of earningsByDate" (click)="selectEarning(earning)">
           <div>{{ earning.date | date: 'shortDate' }}</div>
           <div>{{ earning.source }}</div>
           <div>{{ earning.amount | currency }}</div>
         </div>
+        <button id="earning-details-open" data-bs-toggle="modal" data-bs-target="#earning-details-modal"></button>
       </ng-container>
       <ng-template #noEarnings>
         <p>No earnings yet.</p>
@@ -55,4 +56,8 @@
       </ngx-charts-bar-vertical>
     </div>
   </div>
+  <app-add-earning-modal (earningAdded)="refreshEarnings()"></app-add-earning-modal>
+  <app-earning-details-modal [earning]="selectedEarning"
+                             (needRefresh)="refreshEarnings()">
+  </app-earning-details-modal>
 </div>
