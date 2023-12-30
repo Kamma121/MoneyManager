@@ -24,16 +24,15 @@ public class SavingController {
     }
 
     @PostMapping("/saving/add")
-    public ResponseEntity<List<Saving>> addSavings(@RequestBody List<Saving> savings, Principal principal) {
-        for (Saving saving : savings) {
-            saving.setUser(userService.getUser(principal.getName()));
-        }
-        return ResponseEntity.ok(savingService.addSavings(savings));
+    public ResponseEntity<Saving> addSaving(@RequestBody Saving saving, Principal principal) {
+        saving.setUser(userService.getUser(principal.getName()));
+        return ResponseEntity.ok(savingService.addSaving(saving));
     }
 
     @PutMapping("/saving/{savingId}")
     public ResponseEntity<Saving> updateSaving(@PathVariable Long savingId, @RequestBody Saving saving, Principal principal) {
         saving.setUser(userService.getUser(principal.getName()));
+        System.out.println(saving);
         return ResponseEntity.ok(savingService.updateSaving(savingId, saving));
     }
 

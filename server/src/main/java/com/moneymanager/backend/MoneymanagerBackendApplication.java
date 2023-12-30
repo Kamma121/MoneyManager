@@ -43,10 +43,10 @@ public class MoneymanagerBackendApplication {
                     new Earning(null, LocalDate.now(), "Regular Job", 4500, userService.getUser("john.doe@gmail.com")),
                     new Earning(null, LocalDate.now(), "Extra Job", 500, userService.getUser("john.doe@gmail.com")))
             );
-            savingService.addSavings(Arrays.asList(
-                    new Saving(null, "Holidays Greece", 0, 3000, userService.getUser("john.doe@gmail.com")),
-                    new Saving(null, "Tesla model S", 0, 50000, userService.getUser("john.doe@gmail.com"))
-            ));
+            savingService.addSaving(new Saving(null, "Holidays Greece", 250, 3000, userService.getUser("john.doe@gmail.com")));
+            savingService.addSaving(new Saving(null, "Tesla model S", 38500, 50000, userService.getUser("john.doe@gmail.com")));
+            savingService.addSaving(new Saving(null, "New TV", 500, 1500, userService.getUser("john.doe@gmail.com")));
+
         };
     }
 

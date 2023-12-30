@@ -1,5 +1,6 @@
 package com.moneymanager.backend.service;
 
+import com.moneymanager.backend.model.Expense;
 import com.moneymanager.backend.model.Saving;
 import com.moneymanager.backend.repo.SavingRepo;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Transactional
 @Service
@@ -16,8 +18,8 @@ public class SavingServiceImpl implements SavingService {
     private final SavingRepo savingRepo;
 
     @Override
-    public List<Saving> addSavings(List<Saving> savings) {
-        return savingRepo.saveAll(savings);
+    public Saving addSaving(Saving saving) {
+        return savingRepo.save(saving);
     }
 
     @Override
@@ -32,11 +34,16 @@ public class SavingServiceImpl implements SavingService {
 
     @Override
     public Saving updateSaving(Long id, Saving saving) {
-        Saving currentSaving = savingRepo.findById(id).orElseThrow(() -> new UsernameNotFoundException("Id not found."));
-        saving.setName(currentSaving.getName());
-        saving.setCurrentAmount(currentSaving.getCurrentAmount());
-        saving.setTargetAmount(currentSaving.getTargetAmount());
-        return savingRepo.save(currentSaving);
+        Optional<Saving> savingOptional = savingRepo.findById(id);
+        if (savingOptional.isPresent()) {
+            Saving existingSaving = savingOptional.get();
+            existingSaving.setName(saving.getName());
+            existingSaving.setCurrentAmount(saving.getCurrentAmount());
+            existingSaving.setTargetAmount(saving.getTargetAmount());
+            return savingRepo.save(existingSaving);
+        } else {
+            throw new RuntimeException("Expense not found with id " + id);
+        }
     }
 
     @Override
