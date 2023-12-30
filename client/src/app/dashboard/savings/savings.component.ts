@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {faDownload, faPlus} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-savings',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class SavingsComponent {
 
+  protected readonly downloadIcon = faDownload;
+  protected readonly plusIcon = faPlus;
 }

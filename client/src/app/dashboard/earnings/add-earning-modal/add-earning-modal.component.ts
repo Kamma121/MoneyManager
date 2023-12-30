@@ -3,6 +3,7 @@ import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {Earning} from "../../../shared/Earning";
 import {EarningService} from "../../../services/earning.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {displayErrorSnackBar, displaySuccessSnackBar} from "../../../shared/functions";
 
 @Component({
   selector: 'app-add-earning-modal',
@@ -34,14 +35,6 @@ export class AddEarningModalComponent {
     this.userEarnings.splice(i, 1);
   }
 
-  showSuccessMessage(message: string): void {
-    this.snackBar.open(message, 'Close', {
-      duration: 3000,
-      horizontalPosition: 'center',
-      verticalPosition: 'top',
-      panelClass: ['success-snackbar']
-    });
-  }
 
   onSubmitEarnings() {
     this.earningService.addEarnings(this.userEarnings).subscribe({
@@ -51,15 +44,16 @@ export class AddEarningModalComponent {
           closeBtn.click();
         }
         if (this.userEarnings.length > 1) {
-          this.showSuccessMessage(`Successfully added ${this.userEarnings.length} earnings`);
+          displaySuccessSnackBar(this.snackBar, `Successfully added ${this.userEarnings.length} earnings`);
         } else {
-          this.showSuccessMessage(`Successfully added 1 earning`);
+          displaySuccessSnackBar(this.snackBar, `Successfully added 1 earning`);
         }
         this.userEarnings = [];
         this.addEarning();
         this.earningAdded.emit();
       },
       error: (err) => {
+        displayErrorSnackBar(this.snackBar, 'Earning submission failed.');
         console.log(err.error);
       }
     })

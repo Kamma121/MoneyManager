@@ -6,7 +6,7 @@
     </button>
     <div class="month-selector">
       <fa-icon class="arrow" (click)="changeMonth(-1)" [icon]="leftIcon"></fa-icon>
-      <span>{{ displayMonthYear }}</span>
+      <span>{{ displayMonthYear(currentDate) }}</span>
       <fa-icon class="arrow" (click)="changeMonth(1)" [icon]="rightIcon"></fa-icon>
     </div>
     <div class="export-report" (click)="exportToPdf()">

@@ -3,6 +3,7 @@ import {Expense} from "../../../shared/Expense";
 import {faCheck, faPencil, faTimes} from "@fortawesome/free-solid-svg-icons";
 import {ExpenseService} from "../../../services/expense.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {displayErrorSnackBar, displaySuccessSnackBar} from "../../../shared/functions";
 
 @Component({
   selector: 'app-view-all-modal',
@@ -32,6 +33,7 @@ export class ViewAllModalComponent implements OnChanges {
   toggleEdit(index: number): void {
     this.editableRow = index;
   }
+
   filterExpenses(): void {
     if (this.selectedCategory === 'All expenses') {
       this.filteredExpenses = Object.values(this.expensesByCategory).flat();
@@ -51,16 +53,12 @@ export class ViewAllModalComponent implements OnChanges {
             closeBtn.click();
           }
           this.needRefresh.emit();
-          this.snackBar.open('Successfully deleted expense.', 'Close', {
-            duration: 3000,
-            horizontalPosition: 'center',
-            verticalPosition: 'top',
-            panelClass: ['success-snackbar']
-          });
+          displaySuccessSnackBar(this.snackBar,'Successfully deleted expense.');
           this.filteredExpenses.splice(index, 1);
         },
         error: err => {
-          console.error('Error deleting expense:', err);
+          displayErrorSnackBar(this.snackBar, 'Expense deletion failed.');
+          console.error(err.error);
         }
       });
     }
@@ -69,22 +67,18 @@ export class ViewAllModalComponent implements OnChanges {
   updateExpense(expense: Expense) {
     const closeBtn = document.getElementById('view-all-close');
     this.expenseService.updateExpense(expense).subscribe({
-        next: () => {
-            if(closeBtn){
-                closeBtn.click();
-            }
-            this.needRefresh.emit();
-            this.editableRow = -1;
-            this.snackBar.open('Successfully edited expense.', 'Close', {
-                duration: 3000,
-                horizontalPosition: 'center',
-                verticalPosition: 'top',
-                panelClass: ['success-snackbar']
-            });
-        },
-        error: (error) => {
-            console.log(error.error);
+      next: () => {
+        if (closeBtn) {
+          closeBtn.click();
         }
+        this.needRefresh.emit();
+        this.editableRow = -1;
+        displaySuccessSnackBar(this.snackBar,'Successfully edited expense.');
+      },
+      error: (error) => {
+        displayErrorSnackBar(this.snackBar, 'Expense update failed.');
+        console.log(error.error);
+      }
     });
   }
 }

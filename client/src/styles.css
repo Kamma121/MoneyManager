@@ -1,8 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
 .success-snackbar {
-  --mdc-snackbar-container-color:  rgba(40, 167, 69, 0.8);;
+  --mdc-snackbar-container-color: rgba(40, 167, 69, 0.8);
   --mat-mdc-snack-bar-button-color: white;
 }
+
+.error-snackbar {
+  --mdc-snackbar-container-color: rgba(255, 0, 0, 0.8);
+  --mat-mdc-snack-bar-button-color: white;
+
+  .mdc-button__label {
+    color: white;
+  }
+}
+
 .month-selector {
   margin: 1rem;
   display: flex;
@@ -51,14 +62,17 @@ fa-icon:hover {
   color: #c3c3d2;
   transition: 0.2s ease-in-out;
 }
-.legend-title{
-  display:none !important;
+
+.legend-title {
+  display: none !important;
 }
+
 .chart-legend .legend-labels {
   display: flex;
   flex-direction: column !important;
-  font-size:15px;
+  font-size: 15px;
 }
+
 .modal-body img {
   display: block;
   margin-left: auto;
@@ -66,51 +80,60 @@ fa-icon:hover {
   max-width: 100%;
   height: auto;
 }
+
 .btn-close {
   position: absolute;
   top: 1rem;
   right: 1rem;
 }
+
 .btn-close:focus {
   box-shadow: none;
 }
+
 .add-expense-logo,
-.add-earning-logo{
+.add-earning-logo {
   text-align: center;
   margin-bottom: 2rem;
   margin-top: 1rem;
   font-size: 20px;
 }
-.custom-modal-xl{
+
+.custom-modal-xl {
   max-width: 850px;
 }
+
 input[type="date"]:focus,
 input[type="text"]:focus,
 input[type="number"]:focus,
-select:focus{
+select:focus {
   border-color: black !important;
   box-shadow: none !important;
 }
-select:hover{
+
+select:hover {
   cursor: pointer;
 }
+
 .add-expense-btn-section,
-.add-earning-btn-section{
-  display:flex;
+.add-earning-btn-section {
+  display: flex;
   flex-direction: column;
-  gap:10px;
+  gap: 10px;
   align-items: center;
   text-align: center;
 }
+
 .add-expense-btn-section button,
-.add-earning-btn-section button{
+.add-earning-btn-section button {
   padding: 5px 60px;
   text-align: center;
   line-height: 30px;
-  margin:5px 0;
-  width:40%;
+  margin: 5px 0;
+  width: 40%;
   max-width: 400px;
 }
-.remove-btn{
-  margin:0 auto;
+
+.remove-btn {
+  margin: 0 auto;
 }

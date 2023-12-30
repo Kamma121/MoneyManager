@@ -1,0 +1,32 @@
+#savings-section {
+  width: 78vw;
+  height: 95vh;
+  background-color: #363658;
+  border-radius: 15px;
+  box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+#add-saving {
+  margin: 1rem;
+  background-color: #77DD77;
+  color: #333333;
+  font-size: 18px;
+}
+
+#add-saving:hover {
+  background-color: #68C168;
+  color: #FFFFFF;
+}
+#piggyBank {
+  width: 400px;
+}
+#savings-section header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 1rem;
+  border-bottom: 1px solid #c3c3d2;
+}
+
