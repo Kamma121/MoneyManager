@@ -4,11 +4,36 @@
       <fa-icon class="plus" [icon]="plusIcon"></fa-icon>
       Add piggy bank
     </button>
+    <div class="month-selector">
+      <span>Money Vault
+        <fa-icon class="gold-icon" [icon]="vaultIcon"></fa-icon>
+      </span>
+    </div>
     <div class="export-report">
       <fa-icon [icon]="downloadIcon"></fa-icon>
       <p>Export Data</p>
     </div>
   </header>
-
-  <img src="assets/images/piggy-bank-transparent.svg" id="piggyBank"/>
+  <div id="savings-cards">
+    <div class="saving-card" *ngFor="let saving of savings">
+      <div class="title">
+        <h3>{{saving.name}}</h3>
+      </div>
+      <img src="assets/images/5331054.jpg" class="piggyBank"/>
+      <mat-progress-bar mode="determinate"
+                        [value]="progressBarValue(saving.currentAmount || 0,saving.targetAmount || 0)">
+      </mat-progress-bar>
+      <p class="saving-amount">{{saving.currentAmount | currency}} / {{saving.targetAmount | currency}}</p>
+      <div class="savings-buttons">
+        <button class="btn btn-success">
+          Deposit
+          <fa-icon [icon]="depositIcon"></fa-icon>
+        </button>
+        <button class="btn btn-danger">
+          Break the bank
+          <fa-icon [icon]="hammerIcon"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -27,6 +27,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ViewAllModalComponent } from './dashboard/expenses/view-all-modal/view-all-modal.component';
 import { AddEarningModalComponent } from './dashboard/earnings/add-earning-modal/add-earning-modal.component';
 import { EarningDetailsModalComponent } from './dashboard/earnings/earning-details-modal/earning-details-modal.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @NgModule({
   declarations: [
@@ -48,18 +49,19 @@ import { EarningDetailsModalComponent } from './dashboard/earnings/earning-detai
     AddEarningModalComponent,
     EarningDetailsModalComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterOutlet,
-    NgbModule,
-    FontAwesomeModule,
-    FormsModule,
-    HttpClientModule,
-    NgxChartsModule,
-    MatSnackBarModule,
-    BrowserAnimationsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterOutlet,
+        NgbModule,
+        FontAwesomeModule,
+        FormsModule,
+        HttpClientModule,
+        NgxChartsModule,
+        MatSnackBarModule,
+        BrowserAnimationsModule,
+        MatProgressBarModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
