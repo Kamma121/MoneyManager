@@ -2,9 +2,11 @@ package com.moneymanager.backend;
 
 import com.moneymanager.backend.model.Earning;
 import com.moneymanager.backend.model.Expense;
+import com.moneymanager.backend.model.Saving;
 import com.moneymanager.backend.model.User;
 import com.moneymanager.backend.service.EarningService;
 import com.moneymanager.backend.service.ExpenseService;
+import com.moneymanager.backend.service.SavingService;
 import com.moneymanager.backend.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,7 +24,7 @@ public class MoneymanagerBackendApplication {
     }
 
     @Bean
-    CommandLineRunner run(UserService userService, ExpenseService expenseService, EarningService earningService) {
+    CommandLineRunner run(UserService userService, ExpenseService expenseService, EarningService earningService, SavingService savingService) {
         return args -> {
             userService.saveUser(new User("John", "Doe", "john.doe@gmail.com", "test123"));
             userService.saveUser(new User("Ashley", "Austin", "test@gmail.com", "test123"));
@@ -41,6 +43,10 @@ public class MoneymanagerBackendApplication {
                     new Earning(null, LocalDate.now(), "Regular Job", 4500, userService.getUser("john.doe@gmail.com")),
                     new Earning(null, LocalDate.now(), "Extra Job", 500, userService.getUser("john.doe@gmail.com")))
             );
+            savingService.addSavings(Arrays.asList(
+                    new Saving(null, "Holidays Greece", 0, 3000, userService.getUser("john.doe@gmail.com")),
+                    new Saving(null, "Tesla model S", 0, 50000, userService.getUser("john.doe@gmail.com"))
+            ));
         };
     }
 

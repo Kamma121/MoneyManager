@@ -24,7 +24,7 @@ public class EarningController {
     }
 
     @PostMapping("/earning/add")
-    public ResponseEntity<List<Earning>> addEarning(@RequestBody List<Earning> earnings, Principal principal) {
+    public ResponseEntity<List<Earning>> addEarnings(@RequestBody List<Earning> earnings, Principal principal) {
         for (Earning earning : earnings) {
             earning.setUser(userService.getUser(principal.getName()));
         }
