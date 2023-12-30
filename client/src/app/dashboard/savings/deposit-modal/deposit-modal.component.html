@@ -1,0 +1,30 @@
+<div class="modal fade" id="deposit-modal" tabindex="-1" aria-labelledby="depositModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" id = "deposit-close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="justify-content-center modal-header padding-bottom-0 padding-top-5px">
+          <h3>Deposit money</h3>
+        </div>
+        <div class="justify-content-start margin-top-30px">
+          <h4>Piggy bank: {{saving.name}}</h4>
+        </div>
+        <form (ngSubmit)="onSubmitDeposit()" #depositForm="ngForm">
+          <div class="mb-2">
+            <div class="row align-items-center">
+              <div class="justify-content-center align-items-center row">
+                <div class="input-group deposit-input">
+                  <input type="number" class="form-control" placeholder="Deposit amount" name="deposit-amount" [(ngModel)]="depositAmount" required>
+                  <span class="input-group-text">$</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="deposit-button-section">
+            <button type="submit" class="btn btn-success"  [disabled]="!depositForm.valid">Submit Deposit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

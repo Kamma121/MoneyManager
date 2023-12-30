@@ -57,6 +57,9 @@ export class ViewAllModalComponent implements OnChanges {
           this.filteredExpenses.splice(index, 1);
         },
         error: err => {
+          if (closeBtn) {
+            closeBtn.click();
+          }
           displayErrorSnackBar(this.snackBar, 'Expense deletion failed.');
           console.error(err.error);
         }
@@ -76,6 +79,9 @@ export class ViewAllModalComponent implements OnChanges {
         displaySuccessSnackBar(this.snackBar,'Successfully edited expense.');
       },
       error: (error) => {
+        if (closeBtn) {
+          closeBtn.click();
+        }
         displayErrorSnackBar(this.snackBar, 'Expense update failed.');
         console.log(error.error);
       }

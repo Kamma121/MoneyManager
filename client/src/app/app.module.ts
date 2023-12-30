@@ -28,6 +28,8 @@ import { ViewAllModalComponent } from './dashboard/expenses/view-all-modal/view-
 import { AddEarningModalComponent } from './dashboard/earnings/add-earning-modal/add-earning-modal.component';
 import { EarningDetailsModalComponent } from './dashboard/earnings/earning-details-modal/earning-details-modal.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { AddSavingModalComponent } from './dashboard/savings/add-saving-modal/add-saving-modal.component';
+import { DepositModalComponent } from './dashboard/savings/deposit-modal/deposit-modal.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     ViewAllModalComponent,
     AddEarningModalComponent,
     EarningDetailsModalComponent,
+    AddSavingModalComponent,
+    DepositModalComponent,
   ],
     imports: [
         BrowserModule,

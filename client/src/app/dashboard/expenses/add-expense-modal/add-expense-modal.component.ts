@@ -47,9 +47,9 @@ export class AddExpenseModalComponent {
 
 
   onSubmitExpenses() {
+    const closeBtn = document.getElementById('add-expense-close');
     this.expenseService.addExpenses(this.userExpenses).subscribe({
       next: () => {
-        const closeBtn = document.getElementById('add-expense-close');
         if (closeBtn) {
           closeBtn.click();
         }
@@ -63,6 +63,9 @@ export class AddExpenseModalComponent {
         this.expenseAdded.emit();
       },
       error: (error) => {
+        if (closeBtn) {
+          closeBtn.click();
+        }
         displayErrorSnackBar(this.snackBar, 'Expense submission failed.');
         console.log(error.error);
       }

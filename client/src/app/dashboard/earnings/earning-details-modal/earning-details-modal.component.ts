@@ -41,6 +41,9 @@ export class EarningDetailsModalComponent {
         this.needRefresh.emit();
       },
       error: (error) => {
+        if (closeBtn) {
+          closeBtn.click();
+        }
         displayErrorSnackBar(this.snackBar, 'Earning update failed.');
         console.log(error.error);
       }
@@ -58,6 +61,9 @@ export class EarningDetailsModalComponent {
         this.needRefresh.emit();
       },
       error: (error) => {
+        if (closeBtn) {
+          closeBtn.click();
+        }
         displayErrorSnackBar(this.snackBar, 'Earning deletion failed.');
         console.log(error.error);
       }

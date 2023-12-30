@@ -33,13 +33,6 @@ export class ExpenseService {
     }
   }
   updateExpense(expense:Expense){
-    const currExpense:Expense = {
-      id:expense.id,
-      date:expense.date,
-      message:expense.message,
-      category:expense.category,
-      amount:expense.amount,
-    }
-    return this.http.put(`http://localhost:8080/api/expense/${expense.id}`,currExpense,this.httpOptions)
+    return this.http.put(`http://localhost:8080/api/expense/${expense.id}`,expense,this.httpOptions)
   }
 }

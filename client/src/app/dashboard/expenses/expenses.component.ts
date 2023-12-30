@@ -14,6 +14,7 @@ import {
   isSameMonthAndYear,
   sortByDate
 } from "../../shared/functions";
+import {RighteousFontBase64} from "../../shared/righteousFontData";
 
 
 @Component({
@@ -103,9 +104,12 @@ export class ExpensesComponent implements OnInit {
     const tableRows: (string | number | null)[][] = [];
     let number: number = 1;
     doc.setFontSize(18);
-    doc.setFont('helvetica');
+    doc.addFileToVFS("Righteous-Regular.ttf", RighteousFontBase64);
+    doc.addFont("Righteous-Regular.ttf", "Righteous", "normal");
+    doc.setFont('Righteous');
     doc.text('Money Manager', 10, 10);
     doc.setFontSize(12);
+    doc.setFont('helvetica');
     doc.text(`${displayMonthYear(this.currentDate)} Expenses Report`, 70, 35);
 
     sortByDate(currentMonthExpenses);

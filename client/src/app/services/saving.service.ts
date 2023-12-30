@@ -20,8 +20,8 @@ export class SavingService {
     return this.http.get<Saving[]>('http://localhost:8080/api/savings', this.httpOptions);
   }
 
-  addSavings(savings: Saving[]) {
-    return this.http.post('http://localhost:8080/api/saving/add', savings, this.httpOptions);
+  addSaving(saving: Saving) {
+    return this.http.post('http://localhost:8080/api/saving/add', saving, this.httpOptions);
   }
 
   deleteSaving(id: number | null) {
@@ -37,12 +37,6 @@ export class SavingService {
   }
 
   updateSaving(saving: Saving) {
-    const currSaving: Saving = {
-      id: saving.id,
-      name: saving.name,
-      currentAmount: saving.currentAmount,
-      targetAmount: saving.targetAmount
-    }
-    return this.http.put(`http://localhost:8080/api/saving/${saving.id}`, currSaving, this.httpOptions)
+    return this.http.put(`http://localhost:8080/api/saving/${saving.id}`, saving, this.httpOptions);
   }
 }
