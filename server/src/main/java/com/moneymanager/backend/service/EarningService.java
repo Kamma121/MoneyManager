@@ -14,4 +14,6 @@ public interface EarningService {
     Earning updateEarning(Long id, Earning earning);
 
     void deleteEarning(Long id);
+
+    Double getTotalEarnings(String email);
 }

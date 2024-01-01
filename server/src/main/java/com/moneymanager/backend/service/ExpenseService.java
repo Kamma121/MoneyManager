@@ -14,4 +14,7 @@ public interface ExpenseService {
     Expense updateExpense(Long id, Expense expense);
 
     void deleteExpense(Long id);
+
+    Double getTotalExpenses(String email);
+
 }

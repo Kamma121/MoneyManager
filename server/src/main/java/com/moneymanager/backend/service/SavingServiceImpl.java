@@ -1,6 +1,5 @@
 package com.moneymanager.backend.service;
 
-import com.moneymanager.backend.model.Expense;
 import com.moneymanager.backend.model.Saving;
 import com.moneymanager.backend.repo.SavingRepo;
 import lombok.RequiredArgsConstructor;
@@ -49,5 +48,10 @@ public class SavingServiceImpl implements SavingService {
     @Override
     public void deleteSaving(Long id) {
         savingRepo.deleteById(id);
+    }
+
+    @Override
+    public Double getTotalSavings(String email) {
+        return this.savingRepo.sumAllByUserEmail(email);
     }
 }

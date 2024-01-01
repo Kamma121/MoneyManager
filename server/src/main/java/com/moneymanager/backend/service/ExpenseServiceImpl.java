@@ -50,4 +50,9 @@ public class ExpenseServiceImpl implements ExpenseService {
     public void deleteExpense(Long id) {
         expenseRepo.deleteById(id);
     }
+
+    @Override
+    public Double getTotalExpenses(String email) {
+        return expenseRepo.sumAllByUserEmail(email);
+    }
 }

@@ -44,4 +44,9 @@ public class EarningServiceImpl implements EarningService {
         Earning currentEarning = this.earningRepo.findById(id).orElseThrow(() -> new UsernameNotFoundException("Earning not found"));
         this.earningRepo.delete(currentEarning);
     }
+
+    @Override
+    public Double getTotalEarnings(String email) {
+        return this.earningRepo.sumAllByUserEmail(email);
+    }
 }

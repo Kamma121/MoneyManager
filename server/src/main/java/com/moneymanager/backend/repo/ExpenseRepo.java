@@ -6,7 +6,11 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface ExpenseRepo extends JpaRepository<Expense,Long> {
+public interface ExpenseRepo extends JpaRepository<Expense, Long> {
     @Query("SELECT e FROM Expense e WHERE e.user.email = :email")
     List<Expense> findAllByUserEmail(String email);
+
+    @Query("SELECT SUM(e.amount) FROM Expense e WHERE e.user.email = :email")
+    Double sumAllByUserEmail(String email);
+
 }

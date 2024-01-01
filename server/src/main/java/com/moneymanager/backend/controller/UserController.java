@@ -1,7 +1,11 @@
 package com.moneymanager.backend.controller;
 
 import com.moneymanager.backend.form.RoleToUserForm;
+import com.moneymanager.backend.form.Summary;
 import com.moneymanager.backend.model.User;
+import com.moneymanager.backend.service.EarningService;
+import com.moneymanager.backend.service.ExpenseService;
+import com.moneymanager.backend.service.SavingService;
 import com.moneymanager.backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -9,13 +13,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.nio.file.AccessDeniedException;
 import java.security.Principal;
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
 public class UserController {
     private final UserService userService;
+    private final ExpenseService expenseService;
+    private final EarningService earningService;
+    private final SavingService savingService;
 
     @GetMapping("/user")
     public ResponseEntity<User> getAllUsers(Principal principal) {
@@ -38,6 +44,17 @@ public class UserController {
     public ResponseEntity<User> getUserDetails(Principal principal) {
         User user = userService.getUser(principal.getName());
         return ResponseEntity.ok(user);
+    }
+
+    @GetMapping("user/statistics")
+    public ResponseEntity<Summary> getUserStatistics(Principal principal) {
+        String userEmail = principal.getName();
+        Summary summary = Summary.builder()
+                .totalExpenses(this.expenseService.getTotalExpenses(userEmail))
+                .totalEarnings(this.earningService.getTotalEarnings(userEmail))
+                .totalSavings(this.savingService.getTotalSavings(userEmail))
+                .build();
+        return ResponseEntity.ok(summary);
     }
 
     @PostMapping("/user/save")

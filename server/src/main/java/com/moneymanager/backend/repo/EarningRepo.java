@@ -9,4 +9,7 @@ import java.util.List;
 public interface EarningRepo extends JpaRepository<Earning,Long> {
     @Query("SELECT e FROM Earning e WHERE e.user.email = :email")
     List<Earning> findAllByUserEmail(String email);
+
+    @Query("SELECT SUM(e.amount) FROM Earning e WHERE e.user.email = :email")
+    Double sumAllByUserEmail(String email);
 }

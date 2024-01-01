@@ -14,4 +14,6 @@ public interface SavingService {
     Saving updateSaving(Long id, Saving saving);
 
     void deleteSaving(Long id);
+
+    Double getTotalSavings(String email);
 }
