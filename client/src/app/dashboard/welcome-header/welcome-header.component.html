@@ -7,7 +7,7 @@
       {{user?.firstName}} {{user?.lastName}}
     </a>
     <ul class="dropdown-menu text-small " aria-labelledby="profile-dropdown"  data-popper-placement="bottom-start">
-      <li><a class="dropdown-item" href="#">
+      <li><a class="dropdown-item" routerLink="/dashboard/profile" routerLinkActive="active">
         <fa-icon [icon]="userIcon"></fa-icon>
         Profile</a></li>
       <li><hr class="dropdown-divider"></li>

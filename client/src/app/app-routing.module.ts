@@ -7,18 +7,22 @@ import {ExpensesComponent} from "./dashboard/expenses/expenses.component";
 import {OverviewComponent} from "./dashboard/overview/overview.component";
 import {EarningsComponent} from "./dashboard/earnings/earnings.component";
 import {SavingsComponent} from "./dashboard/savings/savings.component";
+import {ProfileComponent} from "./dashboard/profile/profile.component";
+import {authGuard} from "./guards/auth.guard";
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', component: HomePageComponent},
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [authGuard],
     children: [
       {path: '', pathMatch: 'full', redirectTo: 'overview'},
       {path: 'overview', component: OverviewComponent},
       {path: 'expenses', component: ExpensesComponent},
       {path: 'earnings', component: EarningsComponent},
-      {path: 'savings', component: SavingsComponent}
+      {path: 'savings', component: SavingsComponent},
+      {path: 'profile', component: ProfileComponent}
     ]
   }
 ]

@@ -30,7 +30,12 @@ import { EarningDetailsModalComponent } from './dashboard/earnings/earning-detai
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { AddSavingModalComponent } from './dashboard/savings/add-saving-modal/add-saving-modal.component';
 import { DepositModalComponent } from './dashboard/savings/deposit-modal/deposit-modal.component';
+import { ProfileComponent } from './dashboard/profile/profile.component';
+import {JwtHelperService, JwtModule} from "@auth0/angular-jwt";
 
+export function tokenGetter():string | null {
+  return localStorage.getItem('token');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +57,7 @@ import { DepositModalComponent } from './dashboard/savings/deposit-modal/deposit
     EarningDetailsModalComponent,
     AddSavingModalComponent,
     DepositModalComponent,
+    ProfileComponent,
   ],
     imports: [
         BrowserModule,
@@ -65,8 +71,13 @@ import { DepositModalComponent } from './dashboard/savings/deposit-modal/deposit
         MatSnackBarModule,
         BrowserAnimationsModule,
         MatProgressBarModule,
+      JwtModule.forRoot({
+        config: {
+          tokenGetter: tokenGetter
+        },
+      }),
     ],
-  providers: [],
+  providers: [JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

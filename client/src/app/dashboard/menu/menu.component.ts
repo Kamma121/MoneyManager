@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import {
-    faBasketShopping, faChartLine,
-    faCoins,
-    faGift,
-    faPiggyBank,
-    faRightFromBracket,
-    faSackDollar
+  faBasketShopping, faChartLine, faCircleUser,
+  faCoins,
+  faGift,
+  faPiggyBank,
+  faRightFromBracket,
+  faSackDollar
 } from "@fortawesome/free-solid-svg-icons";
 import {Router} from "@angular/router";
 
@@ -24,7 +24,7 @@ export class MenuComponent {
     protected readonly earningsIcon = faCoins;
     protected readonly savingsIcon = faPiggyBank;
     protected readonly signOutIcon = faRightFromBracket;
-    protected readonly getPremiumIcon = faGift;
+    protected readonly userIcon = faCircleUser;
 
     onSignOut():void{
         localStorage.removeItem('token');
