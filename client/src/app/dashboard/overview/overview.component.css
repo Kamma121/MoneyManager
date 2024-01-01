@@ -1,1 +1,129 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+#summary-section {
+  display: flex;
+  margin-top: 2rem;
+  align-items: center;
+  gap: 10px;
+}
+
+.summary-card {
+  flex: 1;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.summary-card:hover {
+  filter: brightness(110%);
+  transition: 0.2s ease-in-out;
+}
+
+.bg-cherry {
+  background: linear-gradient(to right, #493240, #f09) !important;
+  color: #fff;
+}
+
+.bg-blue-dark {
+  background: linear-gradient(to right, #373b44, #4286f4) !important;
+  color: #fff;
+}
+
+.bg-green-dark {
+  background: linear-gradient(to right, #0a504a, #38ef7d) !important;
+  color: #fff;
+}
+
+.bg-orange-dark {
+  background: linear-gradient(to right, #a86008, #ffba56) !important;
+  color: #fff;
+}
+
+.view-more {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  padding: 3px 0;
+  color: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  text-decoration: none;
+}
+
+.summary-card-stats {
+  margin-bottom: 3rem;
+}
+
+.view-more:hover {
+  cursor: pointer;
+}
+
+.summary-card-icon {
+  text-align: center;
+  margin-left: 15px;
+  color: #000;
+  position: absolute;
+  right: 5px;
+  top: 15px;
+  opacity: 0.1;
+  font-size: 45px;
+}
+
+.trivia {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+
+.color-red {
+  color: red;
+}
+
+.financial-card {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  padding:15px;
+  width:35%;
+  height: auto;
+  text-align: center;
+}
+.financial-health-score{
+  font-size: 20px;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: bolder;
+}
+img{
+  width: 100%;
+}
+.financial-quote-card{
+  background-image: url('/assets/images/motivation-quote.jpg');
+  background-color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+.financial-quote-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  border-radius: 15px;
+}
+.quote-text{
+  position: absolute;
+  z-index: 2;
+  color:white;
+}

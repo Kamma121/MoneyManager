@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {User} from "../shared/User";
+import {Summary} from "../shared/Summary";
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,13 @@ export class UserService {
       })
     };
     return this.http.get<User>('http://localhost:8080/api/user',httpOptions);
+  }
+  getStatistics(){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    };
+    return this.http.get<Summary>('http://localhost:8080/api/user/statistics',httpOptions);
   }
 }
