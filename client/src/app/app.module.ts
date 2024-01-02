@@ -32,6 +32,8 @@ import { AddSavingModalComponent } from './dashboard/savings/add-saving-modal/ad
 import { DepositModalComponent } from './dashboard/savings/deposit-modal/deposit-modal.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
 import {JwtHelperService, JwtModule} from "@auth0/angular-jwt";
+import { FeaturesComponent } from './home-page/features/features.component';
+import { ContactComponent } from './home-page/contact/contact.component';
 
 export function tokenGetter():string | null {
   return localStorage.getItem('token');
@@ -58,6 +60,8 @@ export function tokenGetter():string | null {
     AddSavingModalComponent,
     DepositModalComponent,
     ProfileComponent,
+    FeaturesComponent,
+    ContactComponent,
   ],
     imports: [
         BrowserModule,
