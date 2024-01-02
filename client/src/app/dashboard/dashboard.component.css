@@ -13,4 +13,9 @@ app-menu {
   top: 3vh;
   left: 19vw;
   right:5vw;
+  width: 1200px;
+  height: 650px;
+  background-color: #363658;
+  border-radius: 15px;
+  box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
 }

@@ -6,10 +6,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 73vw;
   color:white;
 }
-
+:host {
+  display: block;
+  width: 100%;
+}
 .flex-row {
   display: flex;
   align-items: center;

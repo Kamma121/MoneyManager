@@ -10,33 +10,48 @@ export class SavingService {
   constructor(private http: HttpClient) {
   }
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
-    })
-  };
 
   getAllSavings() {
-    return this.http.get<Saving[]>('http://localhost:8080/api/savings', this.httpOptions);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    };
+    return this.http.get<Saving[]>('http://localhost:8080/api/savings', httpOptions);
   }
 
   addSaving(saving: Saving) {
-    return this.http.post('http://localhost:8080/api/saving/add', saving, this.httpOptions);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    };
+    return this.http.post('http://localhost:8080/api/saving/add', saving, httpOptions);
   }
 
   deleteSaving(id: number | null) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    };
     if (id === null) {
       console.log('Id not found');
       return null;
     } else {
       return this.http.delete(`http://localhost:8080/api/saving/${id}`, {
-        ...this.httpOptions,
+        ...httpOptions,
         responseType: 'text'
       });
     }
   }
 
   updateSaving(saving: Saving) {
-    return this.http.put(`http://localhost:8080/api/saving/${saving.id}`, saving, this.httpOptions);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    };
+    return this.http.put(`http://localhost:8080/api/saving/${saving.id}`, saving, httpOptions);
   }
 }
