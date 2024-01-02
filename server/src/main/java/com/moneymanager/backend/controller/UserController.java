@@ -2,6 +2,7 @@ package com.moneymanager.backend.controller;
 
 import com.moneymanager.backend.form.RoleToUserForm;
 import com.moneymanager.backend.form.Summary;
+import com.moneymanager.backend.form.UpdateUser;
 import com.moneymanager.backend.model.User;
 import com.moneymanager.backend.service.EarningService;
 import com.moneymanager.backend.service.ExpenseService;
@@ -66,6 +67,15 @@ public class UserController {
     public ResponseEntity<?> addRoleToUser(@RequestBody RoleToUserForm form) {
         userService.addRoleToUser(form.getEmail(), form.getRole());
         return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/user")
+    public ResponseEntity<User> updateUser(@RequestBody UpdateUser user, Principal principal) {
+        User currentUser = userService.getUser(principal.getName());
+        currentUser.setFirstName(user.getFirstName());
+        currentUser.setLastName(user.getLastName());
+        currentUser.setEmail(user.getEmail());
+        return ResponseEntity.ok().body(userService.updateUser(currentUser));
     }
 
 }
