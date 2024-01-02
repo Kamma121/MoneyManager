@@ -1,0 +1,49 @@
+<div id="savings-section">
+    <header>
+        <button id="add-saving" class="btn" data-bs-toggle="modal" data-bs-target="#add-saving-modal">
+            <fa-icon class="plus" [icon]="plusIcon"></fa-icon>
+            Add piggy bank
+        </button>
+        <div class="month-selector">
+      <span>Money Vault
+        <fa-icon class="gold-icon" [icon]="vaultIcon"></fa-icon>
+      </span>
+        </div>
+        <div class="export-report" (click)="exportToPdf()">
+            <fa-icon [icon]="downloadIcon"></fa-icon>
+            <p>Export Data</p>
+        </div>
+    </header>
+    <div id="savings-cards">
+        <div class="saving-card" *ngFor="let currentSaving of savings">
+            <div class="title">
+                <h3>{{currentSaving.name}}</h3>
+            </div>
+            <img src="../../../assets/images/piggy-bank.jpg" alt="Piggy bank" class="piggyBank"/>
+            <mat-progress-bar mode="determinate"
+                              [value]="progressBarValue(currentSaving.currentAmount || 0,currentSaving.targetAmount || 0)">
+            </mat-progress-bar>
+            <p class="saving-amount">{{currentSaving.currentAmount | currency}}
+                / {{currentSaving.targetAmount | currency}}</p>
+            <div class="savings-buttons">
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#deposit-modal"
+                        (click)="selectedSaving = currentSaving">
+                    Deposit
+                    <fa-icon [icon]="depositIcon"></fa-icon>
+                </button>
+                <button class="btn btn-danger" (click)="onBreakBank(currentSaving)">
+                    Break the bank
+                    <fa-icon [icon]="hammerIcon"></fa-icon>
+                </button>
+            </div>
+            <app-deposit-modal
+                    [saving]="selectedSaving"
+                    (refreshSavings)="refreshSavings()">
+            </app-deposit-modal>
+        </div>
+    </div>
+    <app-add-saving-modal
+            [banksCounter]="savings.length"
+            (refreshSavings)="refreshSavings()">
+    </app-add-saving-modal>
+</div>

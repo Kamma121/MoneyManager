@@ -6,7 +6,8 @@
   background-position: center;
   position: relative;
   text-align: center;
-  height: 800px;
+  height: 91vh;
+  max-height: 900px;
 }
 
 .banner-container::before {

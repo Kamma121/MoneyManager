@@ -1,10 +1,7 @@
-<div>
-  <nav>
-    <ul>
-      <li>home</li>
-      <li>Contact</li>
-      <li>Premium</li>
-    </ul>
-  </nav>
+<div class="dashboard-nav">
+  <app-menu></app-menu>
 </div>
-<h3>Hello {{user?.firstName}} {{user?.lastName}}</h3>
+<div id="dashboard-main-section">
+  <router-outlet></router-outlet>
+</div>
+

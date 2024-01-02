@@ -1,0 +1,67 @@
+<div id="expenses-section">
+  <header>
+    <button id="add-expense" class="btn" data-bs-toggle="modal" data-bs-target="#add-expense-modal">
+      <fa-icon class="plus" [icon]="plusIcon"></fa-icon>
+      Add expense
+    </button>
+    <div class="month-selector">
+      <fa-icon class="arrow" (click)="changeMonth(-1)" [icon]="leftIcon"></fa-icon>
+      <span>{{ displayMonthYear(currentDate) }}</span>
+      <fa-icon class="arrow" (click)="changeMonth(1)" [icon]="rightIcon"></fa-icon>
+    </div>
+    <div class="export-report" (click)="exportToPdf()">
+      <fa-icon [icon]="downloadIcon"></fa-icon>
+      <p>Export Data</p>
+    </div>
+  </header>
+  <div class="expenses-summary">
+    <div id="cards">
+      <div class="expense-card" *ngFor="let category of categories">
+        <img src="../../../assets/images/{{category}}.png" alt="{{category}} icon">
+        <p class="category-name">{{category}}</p>
+        <hr>
+        <ng-container *ngIf="expensesByCategory[category]?.length; else noExpenses">
+          <div class="expense" *ngFor="let expense of expensesByCategory[category] | slice:0:3">
+            <p>{{ expense.date | date: 'dd.MM' }}</p>
+            <p>{{ expense.message }}</p>
+            <p>{{ expense.amount | currency}}</p>
+          </div>
+          <a class="view-all" data-bs-toggle="modal" data-bs-target="#view-all-modal"
+             (click)="openViewAllModal(category)">View all...</a>
+        </ng-container>
+
+        <ng-template #noExpenses>
+          <p>No expenses yet.</p>
+        </ng-template>
+      </div>
+    </div>
+    <div id="expense-chart">
+      <ngx-charts-pie-chart *ngIf="totalExpenses > 0"
+        [view]="[400, 300]"
+        [scheme]="colorScheme"
+        [results]="data"
+        [legend]="true"
+        [legendPosition]="below"
+        [labels]="false"
+        [doughnut]="true"
+        [gradient]="false">
+        <ng-template #tooltipTemplate let-model="model">
+          <div style="padding:10px; text-align:center;">
+            <span>{{model.name}}: {{model.value | currency}}</span>
+          </div>
+        </ng-template>
+      </ngx-charts-pie-chart>
+      <div class="center-label" *ngIf="totalExpenses > 0">
+        <p class="total-spent">{{totalExpenses | currency}}</p>
+        <p>Spent this month</p>
+      </div>
+    </div>
+  </div>
+  <app-view-all-modal [expensesByCategory]="expensesByCategory"
+                      (needRefresh)="refreshExpenses()"
+                      [selectedCategory]="selectedCategory">
+
+  </app-view-all-modal>
+  <app-add-expense-modal (expenseAdded)="refreshExpenses()"></app-add-expense-modal>
+</div>
+

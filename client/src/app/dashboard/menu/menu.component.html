@@ -1,0 +1,46 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white" id="side-bar">
+  <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+    <span class="fs-4">MoneyManager <fa-icon class="fa-border-circle logo" [icon]="faSackDollar"></fa-icon></span>
+  </a>
+  <hr>
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li>
+      <a routerLink="overview" routerLinkActive="active" class="nav-link">
+        <fa-icon [icon]="dashboardIcon"></fa-icon>
+        Dashboard
+      </a>
+    </li>
+    <li>
+      <a routerLink="expenses" routerLinkActive="active" class="nav-link">
+        <fa-icon [icon]="expenseIcon"></fa-icon>
+        Expenses
+      </a>
+    </li>
+    <li>
+      <a routerLink="earnings" routerLinkActive="active" class="nav-link">
+        <fa-icon [icon]="earningsIcon"></fa-icon>
+        Earnings
+      </a>
+    </li>
+    <li>
+      <a routerLink="savings" routerLinkActive="active" class="nav-link">
+        <fa-icon [icon]="savingsIcon"></fa-icon>
+        Savings
+      </a>
+    </li>
+  </ul>
+  <hr>
+  <ul class="nav nav-pills flex-column">
+    <li>
+      <a routerLink="profile" routerLinkActive="active" class="nav-link lower-section">
+        <fa-icon [icon]="userIcon"></fa-icon>
+        Profile
+      </a>
+    </li>
+    <li>
+      <a (click)="onSignOut()" class="nav-link lower-section">
+        <fa-icon [icon]="signOutIcon"></fa-icon>
+        Sign out</a>
+    </li>
+  </ul>
+</div>

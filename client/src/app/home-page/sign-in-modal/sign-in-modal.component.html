@@ -9,8 +9,8 @@
         </div>
         <form (ngSubmit)="onSubmitSignIn()" #signInForm= "ngForm">
           <div class="mb-3">
-            <label for="email" class="form-label text-start">E-mail</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your e-mail" name="email" [(ngModel)]="email" required>
+            <label for="email-sign-in" class="form-label text-start">E-mail</label>
+            <input type="email" class="form-control" id="email-sign-in" placeholder="Enter your e-mail" name="email" [(ngModel)]="email" required>
             <div *ngIf="invalidEmail" class="alert alert-danger">
               Email not found.
             </div>

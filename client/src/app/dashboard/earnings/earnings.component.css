@@ -1,0 +1,121 @@
+#earnings-section {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#add-earning {
+  margin: 1rem;
+  background-color: #77DD77;
+  color: #333333;
+  font-size: 18px;
+}
+
+#add-earning:hover {
+  background-color: #68C168;
+  color: #FFFFFF;
+}
+
+#earnings-section header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 1rem;
+  border-bottom: 1px solid #c3c3d2;
+  z-index: 3;
+}
+
+.earnings-list-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 400px;
+  overflow-y: auto;
+  gap: 10px;
+  margin: 1rem;
+  flex: 1;
+}
+.earnings-list-container >p{
+  text-align: center;
+  color:white;
+}
+
+.earning-entry {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.earning-entry > div {
+  flex: 1;
+  text-align: center;
+  padding: 0 5px;
+}
+
+.earning-entry > div:first-child {
+  text-align: left;
+}
+
+.earning-entry > div:last-child {
+  text-align: right;
+}
+
+.earning-entry.earning-info {
+  font-weight: bold;
+  box-shadow: none;
+  background-color: #363658;
+  color: white;
+  font-size: 21px;
+}
+
+.earning:hover {
+  cursor: pointer;
+  background-color: #b3b3b3;
+  transition: background-color 0.1s ease-in-out;
+}
+
+.earnings-details {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+
+}
+
+.earning-info {
+  border-radius: 0;
+  border-bottom: 1px solid #c3c3d2;
+}
+
+.chart {
+  width: 50%;
+  margin-left: 1rem;
+  color: white;
+  padding:20px 0 0 15px;
+}
+
+.chart-legend ul{
+  margin-top:10px !important;
+  padding-top:10px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.legend-title {
+  display: none !important;
+}
+
+.vertical-line {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  border-left: 1px solid #c3c3d2;
+  height: 80%;
+  z-index: 1;
+}
+#earning-details-open{
+  display:none;
+}

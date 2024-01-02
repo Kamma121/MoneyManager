@@ -1,0 +1,84 @@
+.modal-header {
+  text-align: center;
+  justify-content: center;
+  padding:3px;
+  margin-bottom: 10px;
+}
+
+#earning-details {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-body {
+  padding: 20px;
+  position: relative;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+#earning-details-section {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.earning-section-info {
+  display: flex;
+
+}
+.earning-section-info > div {
+  flex: 1;
+  text-align: center;
+}
+.earning-section-info > div:first-child{
+  text-align: left;
+}
+.earning-section-info > div:last-child{
+  text-align: right;
+}
+.date-input{
+  width:70%;
+}
+.source-input{
+  width:90%;
+}
+.amount-input{
+  width:60%;
+}
+.amount-box{
+  display: flex;
+  justify-content: flex-end;
+}
+.source-box{
+  display:flex;
+  justify-content: center;
+}
+
+.custom-modal-lg{
+  max-width: 600px;
+}
+.labels{
+  font-weight: bolder;
+}
+.buttons {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  gap:10px;
+}
+.margin-bottom-30p{
+  margin-bottom: 30px;
+}
+.dollar-glass-icon{
+  color:gold;
+  font-size:22px;
+  margin-left:4px;
+}
+.dollar-glass-icon:hover{
+  cursor: auto;
+}
