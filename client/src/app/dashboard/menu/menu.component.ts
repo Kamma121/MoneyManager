@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {
   faBasketShopping, faChartLine, faCircleUser,
   faCoins,
-  faGift,
   faPiggyBank,
   faRightFromBracket,
   faSackDollar

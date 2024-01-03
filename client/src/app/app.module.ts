@@ -34,13 +34,7 @@ import {ProfileComponent} from './dashboard/profile/profile.component';
 import {JwtHelperService, JwtModule} from "@auth0/angular-jwt";
 import {FeaturesComponent} from './home-page/features/features.component';
 import {ContactComponent} from './home-page/contact/contact.component';
-import {MdbAccordionModule} from "mdb-angular-ui-kit/accordion";
-import {MdbModalModule} from "mdb-angular-ui-kit/modal";
-import {MdbDropdownDirective, MdbDropdownModule} from "mdb-angular-ui-kit/dropdown";
-import {MdbTabsModule} from "mdb-angular-ui-kit/tabs";
-import {MdbCollapseModule} from "mdb-angular-ui-kit/collapse";
-import {MdbPopoverModule} from "mdb-angular-ui-kit/popover";
-import {MdbCheckboxModule} from "mdb-angular-ui-kit/checkbox";
+
 
 export function tokenGetter(): string | null {
   return localStorage.getItem('token');
