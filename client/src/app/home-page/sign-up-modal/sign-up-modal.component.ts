@@ -14,7 +14,7 @@ export class SignUpModalComponent {
   password: string = "";
   confirmPassword: string = "";
   userExist:boolean = false;
-
+  protected readonly isValidEmail = isValidEmail;
 
   constructor(private authService: AuthenticationService, private router: Router) {
   }
@@ -40,8 +40,10 @@ export class SignUpModalComponent {
     return password.length > 4;
   }
 
-  isValidEmail(email: string): boolean {
-    const regex = new RegExp('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$');
-    return regex.test(email);
-  }
+
+
+}
+export function isValidEmail(email: string): boolean {
+  const regex = new RegExp('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$');
+  return regex.test(email);
 }

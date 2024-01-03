@@ -19,7 +19,7 @@
           <div class="mb-3">
             <label for="email-sign-up" class="form-label text-start">E-mail</label>
             <input type="text" class="form-control" id="email-sign-up" placeholder="Enter your e-mail" name = "email" [(ngModel)]="email" required>
-            <div *ngIf="!isValidEmail(email) && email.length != 0" class="alert alert-danger">
+            <div *ngIf="!isValidEmail(email) && email.length > 5" class="alert alert-danger">
               Email must be valid.
             </div>
           </div>

@@ -22,6 +22,8 @@
 
 .features {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   padding: 20px;
   gap:1rem;
   margin: 2rem 0 4rem 0;
@@ -29,9 +31,13 @@
 
 .feature-item {
   background-color: #212b37;
+  flex: 1 1 200px;
+  margin: 10px;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 8px 16px 0 black;
+  justify-content: space-between;
+
 }
 
 .feature-item h3 {
@@ -41,11 +47,13 @@
   flex:1;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .features-image img{
   width:100%;
   border-radius: 15px;
   max-width: 500px;
+  height: auto;
   min-width: 400px;
   max-height: 420px;
 }
@@ -57,4 +65,22 @@
 }
 .title-paragraph{
   font-size: 19px;
+}
+@media (max-width: 1100px) {
+  .feature-item,
+  .features-image{
+    flex-basis: 100%;
+  }
+  .feature-item h5 {
+    font-size: smaller;
+  }
+}
+@media (min-width:1400px) {
+  .feature-item{
+    flex:1 1;
+    max-width: 630px;
+  }
+  .features-items{
+    align-items: center;
+  }
 }
