@@ -128,3 +128,10 @@ header {
   z-index: 2;
   color:white;
 }
+@media (max-width: 900px) {
+  .quote-text,
+  .financial-health-score{
+    font-size: 14px;
+  }
+
+}

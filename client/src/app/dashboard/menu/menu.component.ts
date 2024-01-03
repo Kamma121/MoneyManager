@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {
   faBasketShopping, faChartLine, faCircleUser,
   faCoins,
@@ -15,19 +15,25 @@ import {Router} from "@angular/router";
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
-    constructor(private router:Router) {}
+  constructor(private router: Router) {
+  }
 
 
-    protected readonly faSackDollar = faSackDollar;
-    protected readonly dashboardIcon = faChartLine;
-    protected readonly expenseIcon = faBasketShopping;
-    protected readonly earningsIcon = faCoins;
-    protected readonly savingsIcon = faPiggyBank;
-    protected readonly signOutIcon = faRightFromBracket;
-    protected readonly userIcon = faCircleUser;
+  protected readonly faSackDollar = faSackDollar;
+  protected readonly dashboardIcon = faChartLine;
+  protected readonly expenseIcon = faBasketShopping;
+  protected readonly earningsIcon = faCoins;
+  protected readonly savingsIcon = faPiggyBank;
+  protected readonly signOutIcon = faRightFromBracket;
+  protected readonly userIcon = faCircleUser;
+  isSidebarOpen: boolean = false;
 
-    onSignOut():void{
-        localStorage.removeItem('token');
-        this.router.navigate(['/'])
-    }
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
+  onSignOut(): void {
+    localStorage.removeItem('token');
+    this.router.navigate(['/'])
+  }
 }

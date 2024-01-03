@@ -1,11 +1,15 @@
 #side-bar {
   background-color: #363658;
-  font-family: "Lato Semibold";
+  font-family: "Lato Semibold", serif;
   font-size: 17px;
-  height: 100vh;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  transition:  0.3s ease-in-out;
+  height:100%;
 }
-
+.nav-logo{
+  display: flex;
+  gap: 5px;
+}
 .nav-link {
   color: #c3c3d2;
 
@@ -38,3 +42,35 @@ a:hover {
 .lower-section {
   padding: 8px 16px;
 }
+@media (max-width: 1280px) {
+  .lower-section{
+    padding:6px 8px;
+  }
+  .nav-link{
+    padding:6px 8px;
+    font-size:16px;
+  }
+  .nav-logo{
+    font-size:18px !important;
+  }
+}
+
+/*.menu-logo{*/
+/*  font-size: 24px;*/
+/*}*/
+
+/*@media (max-width: 1426px) {*/
+/*  .menu-logo {*/
+/*    font-size: 22px;*/
+/*    text-align: center;*/
+/*  }*/
+/*}*/
+/*@media (max-width: 1328px) {*/
+/*  .menu-logo {*/
+/*    font-size: 20px;*/
+/*    text-align: center;*/
+/*  }*/
+/*  .nav-link{*/
+/*    font-size: 15px;*/
+/*  }*/
+/*}*/

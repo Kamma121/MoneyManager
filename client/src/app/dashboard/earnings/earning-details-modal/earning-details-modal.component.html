@@ -47,10 +47,16 @@
               <fa-icon [icon]="successIcon"></fa-icon>
               Submit
             </button>
-            <button class="btn btn-danger" (click)="deleteEarning()">
+            <button class="btn btn-danger" *ngIf="!editable;else cancelEditEarning" (click)="deleteEarning()">
               <fa-icon [icon]="deleteIcon"></fa-icon>
               Delete
             </button>
+            <ng-template #cancelEditEarning>
+              <button class="btn btn-danger" (click)="editable = false">
+                <fa-icon [icon]="deleteIcon"></fa-icon>
+                Cancel
+              </button>
+            </ng-template>
           </div>
         </div>
       </div>

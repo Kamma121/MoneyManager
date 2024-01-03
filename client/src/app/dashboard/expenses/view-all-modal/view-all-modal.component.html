@@ -60,7 +60,13 @@
                     <fa-icon [icon]="successIcon"></fa-icon>
                   </button>
                 </ng-template>
-                <button type="button" class="btn btn-danger remove-btn" (click)="removeExpense(i)">
+                <ng-template #cancelButton>
+                  <button type="button" class="btn btn-danger" (click)="editableRow = -1">
+                    <fa-icon [icon]="deleteIcon"></fa-icon>
+                  </button>
+                </ng-template>
+                <button type="button" class="btn btn-danger remove-btn" (click)="removeExpense(i)"
+                        *ngIf="editableRow !== i;else cancelButton">
                   <fa-icon [icon]="deleteIcon"></fa-icon>
                 </button>
               </div>

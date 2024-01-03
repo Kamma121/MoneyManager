@@ -26,16 +26,19 @@
 
 .expenses-summary {
   display: flex;
+  justify-content: center;
 }
 
 #cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  padding-bottom: 10px;
+  overflow-y: auto;
 }
 
 .expense-card {
-  font-family: "Lato";
+  font-family: "Lato", serif;
   background-color: white;
   padding: 5px;
   border-radius: 15px;
@@ -90,6 +93,15 @@
 #expense-chart{
   position: relative;
   width:40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#expense-chart ngx-charts-pie-chart {
+  display:flex;
+  justify-content: center;
+  width: 100%;
 }
 .center-label {
   position: absolute;
@@ -108,4 +120,53 @@
 .legend-label-text{
   font-size:14px !important;
   color:white;
+}
+
+@media (max-width: 1080px) {
+  .expense-card p {
+    font-size: 14px;
+  }
+  .expense-card img{
+    max-width: 70px;
+  }
+
+}
+@media(max-width: 1200px){
+ #add-expense,
+ .export-report{
+   font-size:15px;
+ }
+}
+@media  (max-width: 1300px){
+  .expense-card {
+    flex-basis: calc(50% - 20px);
+  }
+  .expense{
+    margin:0 auto;
+  }
+  .center-label{
+    top:22%;
+  }
+}
+@media (max-width: 1400px) {
+  .expense-card p {
+    font-size: 15px;
+  }
+}
+
+@media  (max-width: 1040px){
+  .center-label{
+    top:20%;
+  }
+  .center-label p{
+    font-size:14px;
+  }
+}
+@media (max-width: 900px){
+  #add-expense {
+    font-size:14px;
+  }
+  .export-report{
+    font-size: 14px;
+  }
 }
