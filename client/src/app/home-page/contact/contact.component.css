@@ -52,6 +52,8 @@
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 8px 16px 0 black;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .contact-image {
@@ -64,4 +66,21 @@
 
 .contact-image img {
   width: 100%;
+  height: auto;
+}
+.required-star{
+  color:red;
+}
+.alert-danger{
+  padding:5px;
+}
+@media (max-width:1000px){
+  .contact-card{
+    width:80%;
+  }
+}
+@media (max-width:650px){
+  .contact-card{
+    width:90%;
+  }
 }

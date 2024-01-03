@@ -49,3 +49,19 @@ app-sign-up-modal{
   color: black;
   font-family: 'Righteous', sans-serif;
 }
+@media (max-width: 540px) {
+  #home-nav {
+    flex-direction: column;
+  }
+  .nav-option, .nav-logo {
+    font-size: 17px;
+  }
+  .sign-up-btn, .text-end button {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .sign-buttons{
+    display: flex;
+    width:60%;
+  }
+}

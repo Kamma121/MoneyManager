@@ -6,7 +6,7 @@
   background-position: center;
   position: relative;
   text-align: center;
-  height: 91vh;
+  height: 90vh;
   max-height: 900px;
 }
 
@@ -29,7 +29,7 @@
   color: white;
   z-index: 2;
   font-size: 20px;
-  font-family: "Lato Semibold";
+  font-family: "Lato Semibold", serif;
 }
 .author{
   top:55%;
@@ -37,4 +37,9 @@
 }
 .carousel-item {
   transition: transform 2s ease;
+}
+@media (max-width: 800px){
+  .banner-container{
+    max-height: 700px;
+  }
 }
