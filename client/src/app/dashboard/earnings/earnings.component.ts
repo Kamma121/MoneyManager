@@ -38,7 +38,7 @@ export class EarningsComponent implements OnInit {
   colorScheme: any = {
     domain: ['#ffc8fd', '#cbc8ff', '#ffcec8', '#c8ffd4', '#a6fcfc', '#fff2cc']
   };
-  below = LegendPosition.Below;
+  below: LegendPosition = LegendPosition.Below;
   selectedEarning: Earning = {
     id: null,
     date: null,
@@ -59,14 +59,14 @@ export class EarningsComponent implements OnInit {
     this.processEarningsData();
   }
 
-  refreshEarnings() {
+  refreshEarnings(): void {
     this.earningService.getAllEarnings().subscribe({
-      next: (response: any) => {
+      next: (response: any): void => {
         this.earnings = response;
         this.groupEarningsByDate();
         this.processEarningsData();
       },
-      error: (error: any) => {
+      error: (error: any): void => {
         displayErrorSnackBar(this.snackBar, 'There was an unexpected error')
         console.log(error.error);
       }
@@ -82,8 +82,8 @@ export class EarningsComponent implements OnInit {
   }
 
 
-  processEarningsData() {
-    const earningsBySource = new Map<string, number>();
+  processEarningsData(): void {
+    const earningsBySource: Map<string, number> = new Map<string, number>();
     this.totalEarnings = 0;
     this.earningsByDate.forEach(earning => {
       this.totalEarnings += earning.amount || 0;
@@ -97,9 +97,9 @@ export class EarningsComponent implements OnInit {
     }));
   }
 
-  selectEarning(earning: Earning) {
+  selectEarning(earning: Earning): void {
     this.selectedEarning = earning;
-    const openBtn = document.getElementById('earning-details-open');
+    const openBtn: HTMLElement | null = document.getElementById('earning-details-open');
     if (openBtn) {
       openBtn.click();
     }
@@ -141,8 +141,8 @@ export class EarningsComponent implements OnInit {
     const textSize: number = 12;
     const textWidth: number = text.length * (textSize / 4);
     doc.text(text, pageWidth - textWidth, finalY);
-    const date = new Date(this.earningsByDate[0].date || 0);
-    const month = date.getMonth() + 1;
+    const date: Date = new Date(this.earningsByDate[0].date || 0);
+    const month: number = date.getMonth() + 1;
     doc.save('Earnings-' + month + '-' + date.getFullYear() + '.pdf');
   }
 

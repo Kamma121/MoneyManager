@@ -4,6 +4,7 @@ import {Earning} from "../../../shared/Earning";
 import {EarningService} from "../../../services/earning.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {displayErrorSnackBar, displaySuccessSnackBar} from "../../../shared/functions";
+import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
 
 @Component({
   selector: 'app-earning-details-modal',
@@ -22,25 +23,24 @@ export class EarningDetailsModalComponent {
   constructor(private earningService: EarningService, private snackBar: MatSnackBar) {
   }
 
-
-  protected readonly deleteIcon = faTimes;
-  protected readonly successIcon = faCheck;
-  protected readonly editIcon = faPencil;
-  protected readonly dollarGlassIcon = faMagnifyingGlassDollar;
+  protected readonly deleteIcon: IconDefinition = faTimes;
+  protected readonly successIcon: IconDefinition = faCheck;
+  protected readonly editIcon: IconDefinition = faPencil;
+  protected readonly dollarGlassIcon: IconDefinition = faMagnifyingGlassDollar;
   editable: boolean = false;
 
-
-  updateEarning(earning: Earning) {
-    const closeBtn = document.getElementById('earning-details-close');
+  updateEarning(earning: Earning): void {
+    const closeBtn: HTMLElement | null = document.getElementById('earning-details-close');
     this.earningService.updateEarning(earning).subscribe({
-      next: () => {
+      next: (): void => {
         if (closeBtn) {
           closeBtn.click();
         }
         displaySuccessSnackBar(this.snackBar, 'Successfully updated an earning.');
+        this.editable = false;
         this.needRefresh.emit();
       },
-      error: (error) => {
+      error: (error): void => {
         if (closeBtn) {
           closeBtn.click();
         }
@@ -50,17 +50,17 @@ export class EarningDetailsModalComponent {
     });
   }
 
-  deleteEarning() {
-    const closeBtn = document.getElementById('earning-details-close');
+  deleteEarning(): void {
+    const closeBtn: HTMLElement | null = document.getElementById('earning-details-close');
     this.earningService.deleteEarning(this.earning.id)?.subscribe({
-      next: () => {
+      next: (): void => {
         if (closeBtn) {
           closeBtn.click();
         }
         displaySuccessSnackBar(this.snackBar, 'Successfully deleted an earning.');
         this.needRefresh.emit();
       },
-      error: (error) => {
+      error: (error): void => {
         if (closeBtn) {
           closeBtn.click();
         }

@@ -5,6 +5,7 @@ import {ExpenseService} from "../../../services/expense.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MAT_DATE_LOCALE} from "@angular/material/core"
 import {displayErrorSnackBar, displaySuccessSnackBar} from "../../../shared/functions";
+import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
 
 @Component({
   selector: 'app-add-expense-modal',
@@ -23,8 +24,8 @@ export class AddExpenseModalComponent {
 
   categories: string[] = ['House & Bills', 'Food & Groceries', 'Transport', 'Entertainment & Education', 'Clothing & Personal care', 'Other'];
   userExpenses: Expense[] = [this.createEmptyExpense()];
-  protected readonly deleteIcon = faTimes;
-  @Output() expenseAdded = new EventEmitter<void>();
+  protected readonly deleteIcon: IconDefinition = faTimes;
+  @Output() expenseAdded: EventEmitter<void> = new EventEmitter<void>();
 
 
   createEmptyExpense(): Expense {
@@ -46,10 +47,10 @@ export class AddExpenseModalComponent {
   }
 
 
-  onSubmitExpenses() {
-    const closeBtn = document.getElementById('add-expense-close');
+  onSubmitExpenses(): void {
+    const closeBtn: HTMLElement | null = document.getElementById('add-expense-close');
     this.expenseService.addExpenses(this.userExpenses).subscribe({
-      next: () => {
+      next: (): void => {
         if (closeBtn) {
           closeBtn.click();
         }
@@ -62,7 +63,7 @@ export class AddExpenseModalComponent {
         this.addExpense();
         this.expenseAdded.emit();
       },
-      error: (error) => {
+      error: (error): void => {
         if (closeBtn) {
           closeBtn.click();
         }

@@ -37,25 +37,28 @@ export class ExpensesComponent implements OnInit {
   colorScheme: any = {
     domain: ['#ffcec8', '#c8ffd4', '#a6fcfc', '#cbc8ff', '#ffc8fd', '#fff2cc']
   };
-  below = LegendPosition.Below;
+  below: LegendPosition = LegendPosition.Below;
   @Output() viewAllModalOpen = new EventEmitter<{ [category: string]: Expense[] }>();
   selectedCategory: string = '';
   protected readonly displayMonthYear = displayMonthYear;
   chartView: [number, number] = [400, 300];
-  constructor(private expenseService: ExpenseService, private snackBar: MatSnackBar) {}
+
+  constructor(private expenseService: ExpenseService, private snackBar: MatSnackBar) {
+  }
 
   ngOnInit(): void {
     this.refreshExpenses();
     this.adjustChartView(window.innerWidth);
   }
-  private adjustChartView(width: number):void {
-    if (width<1040){
+
+  private adjustChartView(width: number): void {
+    if (width < 1040) {
       this.chartView = [200, 200];
-    }
-    else if (width < 1200) {
+    } else if (width < 1200) {
       this.chartView = [300, 300];
     }
   }
+
   private categorizeAndSumExpenses(): void {
     this.totalExpenses = 0;
     this.data = this.categories.map(category => {
@@ -86,21 +89,21 @@ export class ExpensesComponent implements OnInit {
     this.categorizeAndSumExpenses();
   }
 
-  refreshExpenses() {
+  refreshExpenses(): void {
     this.expenseService.getAllExpenses().subscribe({
       next: (response: any) => {
         this.expenses = response;
         this.categorizeExpenses();
         this.categorizeAndSumExpenses();
       },
-      error: (error: any) => {
+      error: (error: any): void => {
         displayErrorSnackBar(this.snackBar, 'There was an unexpected error.');
         console.error(error.error);
       }
     });
   }
 
-  exportToPdf() {
+  exportToPdf(): void {
     const currentMonthExpenses: Expense[] = Object.values(this.expensesByCategory).flat();
     if (currentMonthExpenses.length === 0) {
       displayNoDataToExportSnackBar(this.snackBar);

@@ -4,6 +4,7 @@ import {Earning} from "../../../shared/Earning";
 import {EarningService} from "../../../services/earning.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {displayErrorSnackBar, displaySuccessSnackBar} from "../../../shared/functions";
+import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
 
 @Component({
   selector: 'app-add-earning-modal',
@@ -13,7 +14,7 @@ import {displayErrorSnackBar, displaySuccessSnackBar} from "../../../shared/func
 export class AddEarningModalComponent {
   @Output() earningAdded: EventEmitter<void> = new EventEmitter<void>();
   userEarnings: Earning[] = [this.createEmptyEarning()];
-  protected readonly deleteIcon = faTimes;
+  protected readonly deleteIcon: IconDefinition = faTimes;
 
   constructor(private earningService: EarningService, private snackBar: MatSnackBar) {
   }
@@ -36,10 +37,10 @@ export class AddEarningModalComponent {
   }
 
 
-  onSubmitEarnings() {
+  onSubmitEarnings(): void {
     this.earningService.addEarnings(this.userEarnings).subscribe({
-      next: (res) => {
-        const closeBtn = document.getElementById('add-earning-close');
+      next: (): void => {
+        const closeBtn: HTMLElement | null = document.getElementById('add-earning-close');
         if (closeBtn) {
           closeBtn.click();
         }
@@ -52,7 +53,7 @@ export class AddEarningModalComponent {
         this.addEarning();
         this.earningAdded.emit();
       },
-      error: (err) => {
+      error: (err): void => {
         displayErrorSnackBar(this.snackBar, 'Earning submission failed.');
         console.log(err.error);
       }

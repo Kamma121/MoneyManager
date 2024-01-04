@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {faSackDollar} from "@fortawesome/free-solid-svg-icons";
 import {Router} from "@angular/router";
+import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
 
 @Component({
   selector: 'app-navigation-bar',
@@ -8,9 +9,6 @@ import {Router} from "@angular/router";
   styleUrls: ['./navigation-bar.component.css']
 })
 export class NavigationBarComponent {
-  faSackDollar = faSackDollar;
-  constructor(private router:Router) {}
-  navigate(fragment: string):void {
-    this.router.navigate(['/'], { fragment: fragment });
-  }
+  faSackDollar:IconDefinition = faSackDollar;
+
 }

@@ -6,10 +6,10 @@ import {
   faCoins,
   faHeart,
   faPiggyBank,
-  faTimes
 } from "@fortawesome/free-solid-svg-icons";
 import {UserService} from "../../services/user.service";
 import {Summary} from "../../shared/Summary";
+import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
 
 
 @Component({
@@ -24,14 +24,14 @@ export class OverviewComponent implements OnInit {
   financialHealthScore: number = 0;
   quoteCategories: string[] = ['money', 'success', 'inspirational', 'failure'];
 
-  protected readonly rightArrowIcon = faArrowRight;
-  protected readonly expenseIcon = faBasketShopping;
-  protected readonly earningsIcon = faCoins;
-  protected readonly savingsIcon = faPiggyBank;
-  protected readonly heartIcon = faHeart;
-  totalExpenses: number = 1;
-  totalEarnings: number = 1;
-  totalSavings: number = 1;
+  protected readonly rightArrowIcon: IconDefinition = faArrowRight;
+  protected readonly expenseIcon: IconDefinition = faBasketShopping;
+  protected readonly earningsIcon: IconDefinition = faCoins;
+  protected readonly savingsIcon: IconDefinition = faPiggyBank;
+  protected readonly heartIcon: IconDefinition = faHeart;
+  totalExpenses: number = 0;
+  totalEarnings: number = 0;
+  totalSavings: number = 0;
   quote: string = 'Preoccupation with money is the great test of small natures, but only a small test of great ones.';
   quoteAuthor: string = 'Nicolas Chamfort';
 
@@ -57,7 +57,7 @@ export class OverviewComponent implements OnInit {
 
   getUserStatistics(): void {
     this.userService.getStatistics().subscribe({
-      next: (response: Summary) => {
+      next: (response: Summary): void => {
         this.totalExpenses = response.totalExpenses;
         this.totalEarnings = response.totalEarnings;
         this.totalSavings = response.totalSavings;

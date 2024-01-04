@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Saving} from "../shared/Saving";
+import {Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class SavingService {
   }
 
 
-  getAllSavings() {
-    const httpOptions = {
+  getAllSavings(): Observable<Saving[]> {
+    const httpOptions: { headers: HttpHeaders } = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       })
@@ -20,8 +21,8 @@ export class SavingService {
     return this.http.get<Saving[]>('http://localhost:8080/api/savings', httpOptions);
   }
 
-  addSaving(saving: Saving) {
-    const httpOptions = {
+  addSaving(saving: Saving): Observable<any> {
+    const httpOptions: { headers: HttpHeaders } = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       })
@@ -29,15 +30,15 @@ export class SavingService {
     return this.http.post('http://localhost:8080/api/saving/add', saving, httpOptions);
   }
 
-  deleteSaving(id: number | null) {
-    const httpOptions = {
+  deleteSaving(id: number | null): Observable<string> {
+    const httpOptions: { headers: HttpHeaders } = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       })
     };
     if (id === null) {
       console.log('Id not found');
-      return null;
+      return of("Not found");
     } else {
       return this.http.delete(`http://localhost:8080/api/saving/${id}`, {
         ...httpOptions,
@@ -46,8 +47,8 @@ export class SavingService {
     }
   }
 
-  updateSaving(saving: Saving) {
-    const httpOptions = {
+  updateSaving(saving: Saving):Observable<object> {
+    const httpOptions: { headers: HttpHeaders } = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       })

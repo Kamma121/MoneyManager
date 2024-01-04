@@ -13,7 +13,8 @@ export class AddSavingModalComponent {
 
   saving: Saving = this.createEmptySaving();
   @Input() banksCounter: number = 0;
-  @Output() refreshSavings = new EventEmitter;
+  @Output() refreshSavings: EventEmitter<any> = new EventEmitter;
+
   constructor(private savingService: SavingService, private snackBar: MatSnackBar) {
   }
 
@@ -26,8 +27,8 @@ export class AddSavingModalComponent {
     }
   }
 
-  onSubmitSaving():void {
-    const closeBtn = document.getElementById('add-saving-close');
+  onSubmitSaving(): void {
+    const closeBtn: HTMLElement | null = document.getElementById('add-saving-close');
     if (this.banksCounter >= 3) {
       if (closeBtn) {
         closeBtn.click();
@@ -37,7 +38,7 @@ export class AddSavingModalComponent {
     }
 
     this.savingService.addSaving(this.saving).subscribe({
-      next: () => {
+      next: (): void => {
         if (closeBtn) {
           closeBtn.click();
         }
@@ -45,7 +46,7 @@ export class AddSavingModalComponent {
         displaySuccessSnackBar(this.snackBar, 'Successfully added a piggy bank!');
         this.refreshSavings.emit();
       },
-      error: (error) => {
+      error: (error): void => {
         if (closeBtn) {
           closeBtn.click();
         }

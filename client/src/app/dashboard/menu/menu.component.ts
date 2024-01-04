@@ -7,6 +7,7 @@ import {
   faSackDollar
 } from "@fortawesome/free-solid-svg-icons";
 import {Router} from "@angular/router";
+import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
 
 @Component({
   selector: 'app-menu',
@@ -14,22 +15,16 @@ import {Router} from "@angular/router";
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) {}
 
 
-  protected readonly faSackDollar = faSackDollar;
-  protected readonly dashboardIcon = faChartLine;
-  protected readonly expenseIcon = faBasketShopping;
-  protected readonly earningsIcon = faCoins;
-  protected readonly savingsIcon = faPiggyBank;
-  protected readonly signOutIcon = faRightFromBracket;
-  protected readonly userIcon = faCircleUser;
-  isSidebarOpen: boolean = false;
-
-  toggleSidebar() {
-    this.isSidebarOpen = !this.isSidebarOpen;
-  }
+  protected readonly faSackDollar: IconDefinition = faSackDollar;
+  protected readonly dashboardIcon: IconDefinition = faChartLine;
+  protected readonly expenseIcon: IconDefinition = faBasketShopping;
+  protected readonly earningsIcon: IconDefinition = faCoins;
+  protected readonly savingsIcon: IconDefinition = faPiggyBank;
+  protected readonly signOutIcon: IconDefinition = faRightFromBracket;
+  protected readonly userIcon: IconDefinition = faCircleUser;
 
   onSignOut(): void {
     localStorage.removeItem('token');
