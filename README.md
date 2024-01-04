@@ -38,7 +38,7 @@ For a comprehensive overview of MoneyManager's features and functionalities, wat
 
  **NgxCharts** - Used to create interactive financial charts, such as expense and income charts, providing instant insight into the user's financial health.
 
- **JWT Auth** - User authentication is done using `jwt`, due to its secure and stateless session management and ease of integration with Spring Boot-based applications.
+ **JWT Auth** - User authentication is done using `Json Web Token`, due to its secure and stateless session management and ease of integration with Spring Boot-based applications.
 
   **SendGrid** -  Utilized for reliable email delivery in the contact form, ensuring that user queries and feedback are effectively communicated to the admin.
 ## How to use
