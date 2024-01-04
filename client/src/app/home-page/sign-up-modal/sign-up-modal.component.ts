@@ -13,24 +13,24 @@ export class SignUpModalComponent {
   email: string = "";
   password: string = "";
   confirmPassword: string = "";
-  userExist:boolean = false;
+  userExist: boolean = false;
   protected readonly isValidEmail = isValidEmail;
 
   constructor(private authService: AuthenticationService, private router: Router) {
   }
 
-  onSubmitSignUp() {
-      this.userExist = false;
+  onSubmitSignUp(): void {
+    this.userExist = false;
     this.authService.signUp(this.firstName, this.lastName, this.email, this.password).subscribe({
       next: (response: any) => {
         localStorage.setItem('token', response.token);
-        const closeBtn = document.getElementById('sign-up-close');
+        const closeBtn: HTMLElement | null = document.getElementById('sign-up-close');
         if (closeBtn) {
           closeBtn.click();
         }
         this.router.navigate(['/dashboard']);
       },
-      error: () => {
+      error: (): void => {
         this.userExist = true;
       }
     })
@@ -41,9 +41,9 @@ export class SignUpModalComponent {
   }
 
 
-
 }
+
 export function isValidEmail(email: string): boolean {
-  const regex = new RegExp('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$');
+  const regex: RegExp = new RegExp('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$');
   return regex.test(email);
 }

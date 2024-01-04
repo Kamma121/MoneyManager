@@ -1,5 +1,5 @@
-export interface Summary{
-  totalExpenses:number,
-  totalEarnings:number,
-  totalSavings:number
+export interface Summary {
+  totalExpenses: number,
+  totalEarnings: number,
+  totalSavings: number
 }

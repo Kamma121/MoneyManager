@@ -3,5 +3,5 @@ export interface Expense {
   date: Date | null,
   category: string | null,
   amount: number | null,
-  message:string | null,
+  message: string | null,
 }

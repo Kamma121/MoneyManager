@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Expense} from "../shared/Expense";
+import {Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,8 @@ export class ExpenseService {
   constructor(private http: HttpClient) {
   }
 
-  getAllExpenses() {
-    const httpOptions = {
+  getAllExpenses(): Observable<Expense[]> {
+    const httpOptions: { headers: HttpHeaders } = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       })
@@ -19,8 +20,8 @@ export class ExpenseService {
     return this.http.get<Expense[]>('http://localhost:8080/api/expenses', httpOptions);
   }
 
-  addExpenses(expenses: Expense[]) {
-    const httpOptions = {
+  addExpenses(expenses: Expense[]): Observable<object> {
+    const httpOptions: { headers: HttpHeaders } = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       })
@@ -28,15 +29,15 @@ export class ExpenseService {
     return this.http.post('http://localhost:8080/api/expense/add', expenses, httpOptions);
   }
 
-  deleteExpense(id: number | null) {
-    const httpOptions = {
+  deleteExpense(id: number | null): Observable<string> {
+    const httpOptions: { headers: HttpHeaders } = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       })
     };
     if (id === null) {
       console.log('Id not found');
-      return null;
+      return of('Not found');
     } else {
       return this.http.delete(`http://localhost:8080/api/expense/${id}`, {
         ...httpOptions,
@@ -45,8 +46,8 @@ export class ExpenseService {
     }
   }
 
-  updateExpense(expense: Expense) {
-    const httpOptions = {
+  updateExpense(expense: Expense): Observable<object> {
+    const httpOptions: { headers: HttpHeaders } = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       })

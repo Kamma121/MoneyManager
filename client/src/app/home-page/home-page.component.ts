@@ -8,15 +8,14 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) {
-  }
+  constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {
-    this.route.fragment.subscribe((fragment: string | null) => {
+  ngOnInit(): void {
+    this.route.fragment.subscribe((fragment: string | null): void => {
       if (fragment) {
-        const element = document.querySelector(`#${fragment}`);
+        const element: Element | null = document.querySelector(`#${fragment}`);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          element.scrollIntoView({behavior: 'smooth', block: 'start'});
         }
       }
     });
