@@ -30,6 +30,7 @@ For a comprehensive overview of MoneyManager's features and functionalities, wat
 - ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?logo=spring&logoColor=white&style=for-the-badge)
 - ![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=Hibernate&logoColor=white)
 - ![Lombok](https://img.shields.io/badge/Lombok-2.16.8-blue.svg)
+- ![Apache Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
 - ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 - ![SendGrid](https://img.shields.io/badge/SendGrid-Integrations-green.svg)
 - ![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
