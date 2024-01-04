@@ -37,7 +37,7 @@
     </div>
     <div id="expense-chart">
       <ngx-charts-pie-chart *ngIf="totalExpenses > 0"
-        [view]="[400, 300]"
+        [view]="chartView"
         [scheme]="colorScheme"
         [results]="data"
         [legend]="true"

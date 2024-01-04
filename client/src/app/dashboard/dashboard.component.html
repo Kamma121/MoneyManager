@@ -1,7 +1,10 @@
-<div class="dashboard-nav">
-  <app-menu></app-menu>
+<div class="dashboard-container">
+  <div class="dashboard-nav">
+    <app-menu></app-menu>
+  </div>
+  <div id="dashboard-main-section">
+    <div class="dashboard-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
-<div id="dashboard-main-section">
-  <router-outlet></router-outlet>
-</div>
-

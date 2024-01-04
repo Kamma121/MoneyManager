@@ -1,66 +1,68 @@
-<header>
-  <app-welcome-header></app-welcome-header>
-</header>
-<div id="summary-section">
-  <div class="summary-card bg-cherry">
-    <div class="summary-card-title">
-      Expenses
+<div id="dashboard-overview">
+  <header>
+    <app-welcome-header></app-welcome-header>
+  </header>
+  <div id="summary-section">
+    <div class="summary-card bg-cherry">
+      <div class="summary-card-title">
+        Expenses
+      </div>
+      <div class="summary-card-stats">
+        Total spent: {{totalExpenses |currency}}
+      </div>
+      <div class="summary-card-icon">
+        <fa-icon [icon]="expenseIcon"></fa-icon>
+      </div>
+      <a class="view-more" routerLink="/dashboard/expenses" routerLinkActive="active">View more
+        <fa-icon [icon]="rightArrowIcon"></fa-icon>
+      </a>
     </div>
-    <div class="summary-card-stats">
-      Total spent: {{totalExpenses |currency}}
+    <div class="summary-card bg-green-dark">
+      <div class="summary-card-title">
+        Earnings
+      </div>
+      <div class="summary-card-stats">
+        Total earned: {{totalEarnings |currency}}
+      </div>
+      <div class="summary-card-icon">
+        <fa-icon [icon]="earningsIcon"></fa-icon>
+      </div>
+      <a class="view-more" routerLink="/dashboard/earnings" routerLinkActive="active">View more
+        <fa-icon [icon]="rightArrowIcon"></fa-icon>
+      </a>
     </div>
-    <div class="summary-card-icon">
-      <fa-icon [icon]="expenseIcon"></fa-icon>
+    <div class="summary-card bg-blue-dark">
+      <div class="summary-card-title">
+        Savings
+      </div>
+      <div class="summary-card-stats">
+        Total saved: <span>{{totalSavings |currency}}</span>
+      </div>
+      <div class="summary-card-icon">
+        <fa-icon [icon]="savingsIcon"></fa-icon>
+      </div>
+      <a class="view-more" routerLink="/dashboard/savings" routerLinkActive="active">View more
+        <fa-icon [icon]="rightArrowIcon"></fa-icon>
+      </a>
     </div>
-    <a class="view-more" routerLink="/dashboard/expenses" routerLinkActive="active">View more
-      <fa-icon [icon]="rightArrowIcon"></fa-icon>
-    </a>
   </div>
-  <div class="summary-card bg-green-dark">
-    <div class="summary-card-title">
-      Earnings
-    </div>
-    <div class="summary-card-stats">
-      Total earned: {{totalEarnings |currency}}
-    </div>
-    <div class="summary-card-icon">
-      <fa-icon [icon]="earningsIcon"></fa-icon>
-    </div>
-    <a class="view-more" routerLink="/dashboard/earnings" routerLinkActive="active">View more
-      <fa-icon [icon]="rightArrowIcon"></fa-icon>
-    </a>
-  </div>
-  <div class="summary-card bg-blue-dark">
-    <div class="summary-card-title">
-      Savings
-    </div>
-    <div class="summary-card-stats">
-      Total saved: <span>{{totalSavings |currency}}</span>
-    </div>
-    <div class="summary-card-icon">
-      <fa-icon [icon]="savingsIcon"></fa-icon>
-    </div>
-    <a class="view-more" routerLink="/dashboard/savings" routerLinkActive="active">View more
-      <fa-icon [icon]="rightArrowIcon"></fa-icon>
-    </a>
-  </div>
-</div>
-<div class="trivia">
-  <div class="financial-card">
+  <div class="trivia">
+    <div class="financial-card">
       <h5 class="card-title">Financial Health Score
         <fa-icon class="color-red" [icon]="heartIcon"></fa-icon>
       </h5>
       <div class="financial-health-score">
         {{ financialHealthScore | number:'1.2-2' }} %
       </div>
-      <img src="assets/images/health-score.jpg">
-  </div>
-  <div class="financial-card financial-quote-card">
-    <div class="quote-text">
-      <h5>Your Motivational Quote ✨</h5>
-      "{{quote}}"
-      <br>
-      ~ {{quoteAuthor}}
+      <img src="/assets/images/health-score.jpg" alt="Heart with doctors.">
+    </div>
+    <div class="financial-card financial-quote-card">
+      <div class="quote-text">
+        <h5>Your Motivational Quote ✨</h5>
+        "{{quote}}"
+        <br>
+        ~ {{quoteAuthor}}
+      </div>
     </div>
   </div>
 </div>

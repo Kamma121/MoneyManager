@@ -78,7 +78,6 @@
 }
 
 .earnings-details {
-  position: relative;
   display: flex;
   align-items: stretch;
   justify-content: space-between;
@@ -92,9 +91,11 @@
 
 .chart {
   width: 50%;
+  height: auto;
   margin-left: 1rem;
   color: white;
-  padding:20px 0 0 15px;
+  padding:20px 0 0 5px;
+  border-left: 1px solid #c3c3d2;
 }
 
 .chart-legend ul{
@@ -108,14 +109,13 @@
   display: none !important;
 }
 
-.vertical-line {
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  border-left: 1px solid #c3c3d2;
-  height: 80%;
-  z-index: 1;
-}
 #earning-details-open{
   display:none;
+}
+@media(max-width: 1200px) {
+  #add-earning,
+  .export-report,
+  .earning-entry{
+    font-size: 15px;
+  }
 }

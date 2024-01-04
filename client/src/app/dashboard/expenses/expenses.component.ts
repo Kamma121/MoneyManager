@@ -41,14 +41,21 @@ export class ExpensesComponent implements OnInit {
   @Output() viewAllModalOpen = new EventEmitter<{ [category: string]: Expense[] }>();
   selectedCategory: string = '';
   protected readonly displayMonthYear = displayMonthYear;
-
-  constructor(private expenseService: ExpenseService, private snackBar: MatSnackBar) {
-  }
+  chartView: [number, number] = [400, 300];
+  constructor(private expenseService: ExpenseService, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.refreshExpenses();
+    this.adjustChartView(window.innerWidth);
   }
-
+  private adjustChartView(width: number):void {
+    if (width<1040){
+      this.chartView = [200, 200];
+    }
+    else if (width < 1200) {
+      this.chartView = [300, 300];
+    }
+  }
   private categorizeAndSumExpenses(): void {
     this.totalExpenses = 0;
     this.data = this.categories.map(category => {

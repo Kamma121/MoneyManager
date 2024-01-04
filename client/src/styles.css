@@ -150,3 +150,25 @@ textarea:focus{
   border-color: black !important;
   box-shadow: none !important;
 }
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(136, 136, 136, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #7a7a7a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+@media(max-width: 1200px){
+  .month-selector {
+    font-size: 20px;
+  }
+}
