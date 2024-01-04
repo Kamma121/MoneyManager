@@ -14,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -52,11 +51,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public User getUserById(Long id) {
         return userRepo.findById(id).orElseThrow(() -> new RuntimeException());
-    }
-
-    @Override
-    public List<User> getAllUsers() {
-        return userRepo.findAll();
     }
 
     @Override

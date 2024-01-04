@@ -4,6 +4,7 @@ import {faCheck, faPencil, faTimes} from "@fortawesome/free-solid-svg-icons";
 import {ExpenseService} from "../../../services/expense.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {displayErrorSnackBar, displaySuccessSnackBar} from "../../../shared/functions";
+import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
 
 @Component({
   selector: 'app-view-all-modal',
@@ -19,9 +20,9 @@ export class ViewAllModalComponent implements OnChanges {
   @Output() needRefresh: EventEmitter<void> = new EventEmitter;
   categories: string[] = ['House & Bills', 'Food & Groceries', 'Transport', 'Entertainment & Education', 'Clothing & Personal care', 'Other'];
   filteredExpenses: Expense[] = [];
-  protected readonly deleteIcon = faTimes;
-  protected readonly editIcon = faPencil;
-  protected readonly successIcon = faCheck;
+  protected readonly deleteIcon: IconDefinition = faTimes;
+  protected readonly editIcon: IconDefinition = faPencil;
+  protected readonly successIcon: IconDefinition = faCheck;
   editableRow: number = -1;
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -43,17 +44,17 @@ export class ViewAllModalComponent implements OnChanges {
 
   }
 
-  removeExpense(index: number) {
-    const expenseId = this.filteredExpenses[index].id;
-    const closeBtn = document.getElementById("view-all-close");
+  removeExpense(index: number): void {
+    const expenseId: number | null = this.filteredExpenses[index].id;
+    const closeBtn: HTMLElement | null = document.getElementById("view-all-close");
     if (expenseId !== null) {
       this.expenseService.deleteExpense(expenseId)?.subscribe({
-        next: () => {
+        next: (): void => {
           if (closeBtn) {
             closeBtn.click();
           }
           this.needRefresh.emit();
-          displaySuccessSnackBar(this.snackBar,'Successfully deleted expense.');
+          displaySuccessSnackBar(this.snackBar, 'Successfully deleted expense.');
           this.filteredExpenses.splice(index, 1);
         },
         error: err => {
@@ -67,18 +68,18 @@ export class ViewAllModalComponent implements OnChanges {
     }
   }
 
-  updateExpense(expense: Expense) {
-    const closeBtn = document.getElementById('view-all-close');
+  updateExpense(expense: Expense): void {
+    const closeBtn: HTMLElement | null = document.getElementById('view-all-close');
     this.expenseService.updateExpense(expense).subscribe({
-      next: () => {
+      next: (): void => {
         if (closeBtn) {
           closeBtn.click();
         }
         this.needRefresh.emit();
         this.editableRow = -1;
-        displaySuccessSnackBar(this.snackBar,'Successfully edited expense.');
+        displaySuccessSnackBar(this.snackBar, 'Successfully edited expense.');
       },
-      error: (error) => {
+      error: (error): void => {
         if (closeBtn) {
           closeBtn.click();
         }
