@@ -24,7 +24,7 @@ For a comprehensive overview of MoneyManager's features and functionalities, wat
 - **Bootstrap**
 - **CSS**
 - **HTML**
-- 
+
 **Backend:**
 - **Java**
 - **Spring Boot**
