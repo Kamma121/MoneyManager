@@ -5,7 +5,7 @@ MoneyManager is a full-stack web application designed to help users manage their
 
 
 ## App overview
-For a comprehensive overview of MoneyManager's features and functionalities, watch the application walkthrough video on YouTube:
+For a comprehensive overview of MoneyManager's features and functionalities, watch the application walkthrough video on YouTube: https://youtu.be/ZIHNvvpFI4E?si=oMytAKiwD3N9CX_u
 
 ## Features
 
