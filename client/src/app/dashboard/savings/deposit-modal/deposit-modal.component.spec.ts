@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DepositModalComponent } from './deposit-modal.component';
+import {DepositModalComponent} from './deposit-modal.component';
 
 describe('DepositModalComponent', () => {
   let component: DepositModalComponent;

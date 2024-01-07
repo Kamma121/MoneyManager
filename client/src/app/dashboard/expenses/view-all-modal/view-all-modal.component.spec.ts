@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ViewAllModalComponent } from './view-all-modal.component';
+import {ViewAllModalComponent} from './view-all-modal.component';
 
 describe('ViewAllModalComponent', () => {
   let component: ViewAllModalComponent;

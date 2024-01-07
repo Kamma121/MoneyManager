@@ -11,7 +11,6 @@ import {
 import {MatSnackBar} from "@angular/material/snack-bar";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
-import * as jspdf from "jspdf";
 import {RighteousFontBase64} from "../../shared/righteousFontData";
 import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
 

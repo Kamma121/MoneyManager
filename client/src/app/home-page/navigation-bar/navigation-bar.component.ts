@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {faSackDollar} from "@fortawesome/free-solid-svg-icons";
-import {Router} from "@angular/router";
 import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
 
 @Component({

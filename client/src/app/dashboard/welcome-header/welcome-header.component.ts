@@ -1,10 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from "../../shared/User";
-import {
-  faCircleUser,
-  faCalendarCheck,
-  faRightFromBracket
-} from "@fortawesome/free-solid-svg-icons";
+import {faCalendarCheck, faCircleUser, faRightFromBracket} from "@fortawesome/free-solid-svg-icons";
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {IconDefinition} from "@fortawesome/fontawesome-svg-core";

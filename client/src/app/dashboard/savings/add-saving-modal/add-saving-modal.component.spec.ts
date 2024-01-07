@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AddSavingModalComponent } from './add-saving-modal.component';
+import {AddSavingModalComponent} from './add-saving-modal.component';
 
 describe('AddSavingModalComponent', () => {
   let component: AddSavingModalComponent;

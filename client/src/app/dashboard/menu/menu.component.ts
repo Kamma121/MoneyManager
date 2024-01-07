@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {
-  faBasketShopping, faChartLine, faCircleUser,
+  faBasketShopping,
+  faChartLine,
+  faCircleUser,
   faCoins,
   faPiggyBank,
   faRightFromBracket,

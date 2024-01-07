@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AddEarningModalComponent } from './add-earning-modal.component';
+import {AddEarningModalComponent} from './add-earning-modal.component';
 
 describe('AddEarningModalComponent', () => {
   let component: AddEarningModalComponent;

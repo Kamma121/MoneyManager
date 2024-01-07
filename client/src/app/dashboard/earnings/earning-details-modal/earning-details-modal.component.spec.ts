@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { EarningDetailsModalComponent } from './earning-details-modal.component';
+import {EarningDetailsModalComponent} from './earning-details-modal.component';
 
 describe('EarningDetailsModalComponent', () => {
   let component: EarningDetailsModalComponent;

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AddExpenseModalComponent } from './add-expense-modal.component';
+import {AddExpenseModalComponent} from './add-expense-modal.component';
 
 describe('AddExpenseModalComponent', () => {
   let component: AddExpenseModalComponent;

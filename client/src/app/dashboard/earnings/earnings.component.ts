@@ -7,11 +7,11 @@ import {LegendPosition} from "@swimlane/ngx-charts";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import {
+  displayErrorSnackBar,
   displayMonthYear,
-  isSameMonthAndYear,
   displayNoDataToExportSnackBar,
-  sortByDate,
-  displayErrorSnackBar
+  isSameMonthAndYear,
+  sortByDate
 } from "../../shared/functions"
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {RighteousFontBase64} from "../../shared/righteousFontData";

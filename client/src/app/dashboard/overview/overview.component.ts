@@ -1,12 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {
-  faArrowRight,
-  faBasketShopping,
-  faCoins,
-  faHeart,
-  faPiggyBank,
-} from "@fortawesome/free-solid-svg-icons";
+import {faArrowRight, faBasketShopping, faCoins, faHeart, faPiggyBank,} from "@fortawesome/free-solid-svg-icons";
 import {UserService} from "../../services/user.service";
 import {Summary} from "../../shared/Summary";
 import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
@@ -32,12 +26,12 @@ export class OverviewComponent implements OnInit {
   totalExpenses: number = 0;
   totalEarnings: number = 0;
   totalSavings: number = 0;
-  quote: string = 'Preoccupation with money is the great test of small natures, but only a small test of great ones.';
-  quoteAuthor: string = 'Nicolas Chamfort';
+  quote: string = '';
+  quoteAuthor: string = '';
 
   ngOnInit(): void {
     this.getUserStatistics();
-    // this.fetchQuote();
+    this.fetchQuote();
   }
 
   calculateFinancialHealthScore(): void {
@@ -66,21 +60,21 @@ export class OverviewComponent implements OnInit {
     })
   }
 
-  // fetchQuote(): void {
-  //   const randomCategory: string = this.quoteCategories[Math.floor(Math.random() * this.quoteCategories.length)];
-  //   fetch(`https://api.api-ninjas.com/v1/quotes?category=${randomCategory}`, {
-  //     headers: {
-  //       'X-Api-Key': 'mVBvFHZoOe71b0U7+DRQlQ==aAVCrCReCnhvlHCc'
-  //     }
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       this.quote = data[0].quote;
-  //       this.quoteAuthor = data[0].author;
-  //     })
-  //     .catch(error => {
-  //       console.error('Error fetching quote:', error);
-  //     });
-  // }
+  fetchQuote(): void {
+    const randomCategory: string = this.quoteCategories[Math.floor(Math.random() * this.quoteCategories.length)];
+    fetch(`https://api.api-ninjas.com/v1/quotes?category=${randomCategory}`, {
+      headers: {
+        'X-Api-Key': 'mVBvFHZoOe71b0U7+DRQlQ==aAVCrCReCnhvlHCc'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        this.quote = data[0].quote;
+        this.quoteAuthor = data[0].author;
+      })
+      .catch(error => {
+        console.error('Error fetching quote:', error);
+      });
+  }
 
 }
