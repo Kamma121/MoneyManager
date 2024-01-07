@@ -13,8 +13,7 @@
 .btn-close:focus {
   box-shadow: none;
 }
-.add-expense-logo,
-.add-earning-logo{
+.add-expense-logo{
   text-align: center;
   margin-bottom: 2rem;
   margin-top: 1rem;
@@ -27,8 +26,7 @@
 select:hover{
   cursor: pointer;
 }
-.add-expense-btn-section,
-.add-earning-btn-section{
+.add-expense-btn-section{
   display:flex;
   flex-direction: column;
   gap:10px;

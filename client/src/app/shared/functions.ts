@@ -1,4 +1,6 @@
 import {MatSnackBar} from "@angular/material/snack-bar";
+import jsPDF from "jspdf";
+import {RighteousFontBase64} from "./righteousFontData";
 
 export function displaySuccessSnackBar(snackBar: MatSnackBar, message: string): void {
   snackBar.open(message, 'Close', {
@@ -41,7 +43,7 @@ export function displayMonthYear(currentDate: Date): string {
   return `${month.charAt(0).toUpperCase() + month.slice(1)}, ${year}`;
 }
 
-export function sortByDate(array: any[]) {
+export function sortByDate(array: any[]): void {
   array.sort((a, b) => {
     if (a.date === null) return 1;
     if (b.date === null) return -1;
@@ -49,4 +51,13 @@ export function sortByDate(array: any[]) {
     const dateB = b.date instanceof Date ? b.date : new Date(b.date);
     return dateA.getTime() - dateB.getTime();
   });
+}
+export function addReportStyles(doc: jsPDF):void {
+  doc.setFontSize(18);
+  doc.addFileToVFS("Righteous-Regular.ttf", RighteousFontBase64);
+  doc.addFont("Righteous-Regular.ttf", "Righteous", "normal");
+  doc.setFont('Righteous');
+  doc.text('Money Manager', 10, 10);
+  doc.setFontSize(12);
+  doc.setFont('helvetica');
 }

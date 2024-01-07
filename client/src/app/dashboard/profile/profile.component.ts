@@ -55,7 +55,7 @@ export class ProfileComponent implements OnInit {
         displaySuccessSnackBar(this.snackBar, 'Successfully updated profile. Please sign-in again');
         setTimeout((): void => {
           localStorage.removeItem('token');
-          this.router.navigate(['/']);
+          this.router.navigate(['/']).then();
         }, 3000);
       },
       error: (err): void => {

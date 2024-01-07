@@ -39,11 +39,6 @@ header {
   color: #fff;
 }
 
-.bg-orange-dark {
-  background: linear-gradient(to right, #a86008, #ffba56) !important;
-  color: #fff;
-}
-
 .view-more {
   position: absolute;
   left: 0;

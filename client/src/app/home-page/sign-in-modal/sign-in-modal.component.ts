@@ -27,7 +27,7 @@ export class SignInModalComponent {
         if (closeBtn) {
           closeBtn.click();
         }
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard']).then();
 
       },
       error: (error): void => {

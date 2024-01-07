@@ -28,7 +28,7 @@ export class SignUpModalComponent {
         if (closeBtn) {
           closeBtn.click();
         }
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard']).then();
       },
       error: (): void => {
         this.userExist = true;

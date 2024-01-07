@@ -8,13 +8,13 @@ import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {
+  addReportStyles,
   displayErrorSnackBar,
   displayMonthYear,
   displayNoDataToExportSnackBar,
   isSameMonthAndYear,
   sortByDate
 } from "../../shared/functions";
-import {RighteousFontBase64} from "../../shared/righteousFontData";
 
 
 @Component({
@@ -113,13 +113,7 @@ export class ExpensesComponent implements OnInit {
     const tableColumn: string[] = ["No.", "Date", "Message", "Category", "Amount"];
     const tableRows: (string | number | null)[][] = [];
     let number: number = 1;
-    doc.setFontSize(18);
-    doc.addFileToVFS("Righteous-Regular.ttf", RighteousFontBase64);
-    doc.addFont("Righteous-Regular.ttf", "Righteous", "normal");
-    doc.setFont('Righteous');
-    doc.text('Money Manager', 10, 10);
-    doc.setFontSize(12);
-    doc.setFont('helvetica');
+    addReportStyles(doc);
     doc.text(`${displayMonthYear(this.currentDate)} Expenses Report`, 70, 35);
 
     sortByDate(currentMonthExpenses);
@@ -139,7 +133,7 @@ export class ExpensesComponent implements OnInit {
     const tableHeight: number = rowHeight * currentMonthExpenses.length;
     const finalY: number = 40 + tableHeight + 15;
     const pageWidth: number = 210;
-    const text: string = `Total spent: ${this.totalExpenses}$`;
+    const text: string = `Total spent: ${this.totalExpenses.toFixed(2)}$`;
     const textSize: number = 12;
     const textWidth: number = text.length * (textSize / 4);
     doc.text(text, pageWidth - textWidth, finalY);

@@ -31,6 +31,6 @@ export class WelcomeHeaderComponent implements OnInit {
 
   onSignOut(): void {
     localStorage.removeItem('token');
-    this.router.navigate(['/'])
+    this.router.navigate(['/']).then();
   }
 }
