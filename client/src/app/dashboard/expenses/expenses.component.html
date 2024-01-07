@@ -37,14 +37,14 @@
     </div>
     <div id="expense-chart">
       <ngx-charts-pie-chart *ngIf="totalExpenses > 0"
-        [view]="chartView"
-        [scheme]="colorScheme"
-        [results]="data"
-        [legend]="true"
-        [legendPosition]="below"
-        [labels]="false"
-        [doughnut]="true"
-        [gradient]="false">
+                            [view]="chartView"
+                            [scheme]="colorScheme"
+                            [results]="data"
+                            [legend]="true"
+                            [legendPosition]="below"
+                            [labels]="false"
+                            [doughnut]="true"
+                            [gradient]="false">
         <ng-template #tooltipTemplate let-model="model">
           <div style="padding:10px; text-align:center;">
             <span>{{model.name}}: {{model.value | currency}}</span>

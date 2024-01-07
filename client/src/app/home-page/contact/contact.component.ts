@@ -12,7 +12,8 @@ import {isValidEmail} from "../sign-up-modal/sign-up-modal.component";
 })
 export class ContactComponent {
 
-  constructor(private contactService: ContactService, private snackBar: MatSnackBar) {}
+  constructor(private contactService: ContactService, private snackBar: MatSnackBar) {
+  }
 
   contactBody: Contact = {
     name: '',

@@ -24,8 +24,9 @@
   margin: 10px;
   height: calc(100% - 20px);
   overflow-y: auto;
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
+
 .dashboard-content::-webkit-scrollbar {
   width: 8px;
 }

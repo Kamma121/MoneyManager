@@ -17,7 +17,8 @@ import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
 
 
   protected readonly faSackDollar: IconDefinition = faSackDollar;

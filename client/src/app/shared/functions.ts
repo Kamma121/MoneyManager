@@ -52,7 +52,8 @@ export function sortByDate(array: any[]): void {
     return dateA.getTime() - dateB.getTime();
   });
 }
-export function addReportStyles(doc: jsPDF):void {
+
+export function addReportStyles(doc: jsPDF): void {
   doc.setFontSize(18);
   doc.addFileToVFS("Righteous-Regular.ttf", RighteousFontBase64);
   doc.addFont("Righteous-Regular.ttf", "Righteous", "normal");

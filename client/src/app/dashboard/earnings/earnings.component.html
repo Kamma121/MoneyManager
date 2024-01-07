@@ -23,7 +23,7 @@
         <div>Amount</div>
       </div>
       <ng-container *ngIf="earningsByDate?.length;else noEarnings">
-        <div class="earning-entry earning"  *ngFor="let earning of earningsByDate" (click)="selectEarning(earning)">
+        <div class="earning-entry earning" *ngFor="let earning of earningsByDate" (click)="selectEarning(earning)">
           <div>{{ earning.date | date: 'shortDate' }}</div>
           <div>{{ earning.source }}</div>
           <div>{{ earning.amount | currency }}</div>
@@ -34,19 +34,19 @@
         <p>No earnings yet.</p>
       </ng-template>
     </div>
-    <div class="chart" >
+    <div class="chart">
       <ngx-charts-bar-vertical *ngIf="earningsByDate?.length"
-        [scheme]="colorScheme"
-        [results]="earningsData"
-        [xAxis]="true"
-        [yAxis]="true"
-        [legend]="true"
-        [legendPosition]="below"
-        [showXAxisLabel]="true"
-        [showYAxisLabel]="true"
-        [xAxisLabel]="'Source'"
-        [yAxisLabel]="'Amount'"
-        style="fill: white;">
+                               [scheme]="colorScheme"
+                               [results]="earningsData"
+                               [xAxis]="true"
+                               [yAxis]="true"
+                               [legend]="true"
+                               [legendPosition]="below"
+                               [showXAxisLabel]="true"
+                               [showYAxisLabel]="true"
+                               [xAxisLabel]="'Source'"
+                               [yAxisLabel]="'Amount'"
+                               style="fill: white;">
         <ng-template #tooltipTemplate let-model="model">
           <div style="padding:10px; text-align:center;">
             <span>{{model.name}}: {{model.value | currency}}</span>

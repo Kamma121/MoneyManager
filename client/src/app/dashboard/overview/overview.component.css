@@ -86,20 +86,23 @@ header {
   background-color: white;
   border-radius: 15px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  padding:15px;
-  width:35%;
+  padding: 15px;
+  width: 35%;
   text-align: center;
 }
-.financial-health-score{
+
+.financial-health-score {
   font-size: 20px;
   margin-top: 1rem;
   text-align: center;
   font-weight: bolder;
 }
-.financial-card img{
+
+.financial-card img {
   width: 100%;
 }
-.financial-quote-card{
+
+.financial-quote-card {
   background-image: url('/assets/images/motivation-quote.jpg');
   background-color: white;
   background-size: cover;
@@ -107,6 +110,7 @@ header {
   background-position: center;
   position: relative;
 }
+
 .financial-quote-card::before {
   content: '';
   position: absolute;
@@ -118,14 +122,16 @@ header {
   z-index: 1;
   border-radius: 15px;
 }
-.quote-text{
+
+.quote-text {
   position: absolute;
   z-index: 2;
-  color:white;
+  color: white;
 }
+
 @media (max-width: 900px) {
   .quote-text,
-  .financial-health-score{
+  .financial-health-score {
     font-size: 14px;
   }
 

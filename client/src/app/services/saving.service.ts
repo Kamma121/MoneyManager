@@ -47,7 +47,7 @@ export class SavingService {
     }
   }
 
-  updateSaving(saving: Saving):Observable<object> {
+  updateSaving(saving: Saving): Observable<object> {
     const httpOptions: { headers: HttpHeaders } = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + localStorage.getItem('token')

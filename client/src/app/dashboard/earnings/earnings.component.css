@@ -34,9 +34,10 @@
   margin: 1rem;
   flex: 1;
 }
-.earnings-list-container >p{
+
+.earnings-list-container > p {
   text-align: center;
-  color:white;
+  color: white;
 }
 
 .earning-entry {
@@ -94,13 +95,13 @@
   height: auto;
   margin-left: 1rem;
   color: white;
-  padding:20px 0 0 5px;
+  padding: 20px 0 0 5px;
   border-left: 1px solid #c3c3d2;
 }
 
-.chart-legend ul{
-  margin-top:10px !important;
-  padding-top:10px !important;
+.chart-legend ul {
+  margin-top: 10px !important;
+  padding-top: 10px !important;
   display: flex !important;
   flex-direction: column !important;
 }
@@ -109,13 +110,14 @@
   display: none !important;
 }
 
-#earning-details-open{
-  display:none;
+#earning-details-open {
+  display: none;
 }
-@media(max-width: 1200px) {
+
+@media (max-width: 1200px) {
   #add-earning,
   .export-report,
-  .earning-entry{
+  .earning-entry {
     font-size: 15px;
   }
 }

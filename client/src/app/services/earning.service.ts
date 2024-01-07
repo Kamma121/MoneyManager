@@ -8,7 +8,8 @@ import {Observable, of} from "rxjs";
 })
 export class EarningService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   getAllEarnings(): Observable<Earning[]> {
     const httpOptions: { headers: HttpHeaders } = {

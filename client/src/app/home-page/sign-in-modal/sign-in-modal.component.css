@@ -59,11 +59,13 @@
 form {
   font-family: "Lato Semibold", serif;
 }
-.alert-danger{
-  padding:5px;
+
+.alert-danger {
+  padding: 5px;
 }
-@media (max-width: 1280px){
-  .modal-body img{
-    width:50%;
+
+@media (max-width: 1280px) {
+  .modal-body img {
+    width: 50%;
   }
 }

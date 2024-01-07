@@ -1,5 +1,5 @@
 #expenses-section {
-  width:100%;
+  width: 100%;
   height: 100%;
 }
 
@@ -90,83 +90,94 @@
   font-weight: bolder;
 }
 
-#expense-chart{
+#expense-chart {
   position: relative;
-  width:40%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 #expense-chart ngx-charts-pie-chart {
-  display:flex;
+  display: flex;
   justify-content: center;
   width: 100%;
 }
+
 .center-label {
   position: absolute;
   top: 27%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color:white;
-  font-size:18px;
+  color: white;
+  font-size: 18px;
 }
 
 .total-spent {
   font-size: 20px;
   margin-bottom: 0;
 }
-.legend-label-text{
-  font-size:14px !important;
-  color:white;
+
+.legend-label-text {
+  font-size: 14px !important;
+  color: white;
 }
 
 @media (max-width: 1080px) {
   .expense-card p {
     font-size: 14px;
   }
-  .expense-card img{
+
+  .expense-card img {
     max-width: 70px;
   }
 
 }
-@media(max-width: 1200px){
- #add-expense,
- .export-report{
-   font-size:15px;
- }
+
+@media (max-width: 1200px) {
+  #add-expense,
+  .export-report {
+    font-size: 15px;
+  }
 }
-@media  (max-width: 1300px){
+
+@media (max-width: 1300px) {
   .expense-card {
     flex-basis: calc(50% - 20px);
   }
-  .expense{
-    margin:0 auto;
+
+  .expense {
+    margin: 0 auto;
   }
-  .center-label{
-    top:22%;
+
+  .center-label {
+    top: 22%;
   }
 }
+
 @media (max-width: 1400px) {
   .expense-card p {
     font-size: 15px;
   }
 }
 
-@media  (max-width: 1040px){
-  .center-label{
-    top:20%;
+@media (max-width: 1040px) {
+  .center-label {
+    top: 20%;
   }
-  .center-label p{
-    font-size:14px;
+
+  .center-label p {
+    font-size: 14px;
   }
 }
-@media (max-width: 900px){
+
+@media (max-width: 900px) {
   #add-expense {
-    font-size:14px;
+    font-size: 14px;
   }
-  .export-report{
+
+  .export-report {
     font-size: 14px;
   }
 }

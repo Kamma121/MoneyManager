@@ -65,7 +65,8 @@ a:hover {
   #welcome-section h2, a {
     font-size: 16px;
   }
-  .date-calendar{
+
+  .date-calendar {
     font-size: 16px !important;
   }
 }

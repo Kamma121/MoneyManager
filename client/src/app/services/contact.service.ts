@@ -8,9 +8,10 @@ import {Observable} from "rxjs";
 })
 export class ContactService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
-  sendEmail(contactForm: Contact):Observable<string> {
+  sendEmail(contactForm: Contact): Observable<string> {
     return this.http.post('http://localhost:8080/api/contact', contactForm, {responseType: 'text'});
   }
 }

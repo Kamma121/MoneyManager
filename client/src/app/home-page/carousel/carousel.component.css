@@ -1,4 +1,4 @@
-.banner-container{
+.banner-container {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -31,15 +31,18 @@
   font-size: 20px;
   font-family: "Lato Semibold", serif;
 }
-.author{
-  top:55%;
-  left:50%;
+
+.author {
+  top: 55%;
+  left: 50%;
 }
+
 .carousel-item {
   transition: transform 2s ease;
 }
-@media (max-width: 800px){
-  .banner-container{
+
+@media (max-width: 800px) {
+  .banner-container {
     max-height: 700px;
   }
 }

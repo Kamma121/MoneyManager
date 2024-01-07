@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
 }
-.saving-title{
+
+.saving-title {
   border-bottom: 1px solid black;
 }

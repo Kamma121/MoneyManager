@@ -5,43 +5,50 @@
   max-width: 100%;
   height: auto;
 }
+
 .btn-close {
   position: absolute;
   top: 1rem;
   right: 1rem;
 }
+
 .btn-close:focus {
   box-shadow: none;
 }
-.add-expense-logo{
+
+.add-expense-logo {
   text-align: center;
   margin-bottom: 2rem;
   margin-top: 1rem;
   font-size: 20px;
 }
-.custom-modal-xl{
+
+.custom-modal-xl {
   max-width: 850px;
 }
 
-select:hover{
+select:hover {
   cursor: pointer;
 }
-.add-expense-btn-section{
-  display:flex;
+
+.add-expense-btn-section {
+  display: flex;
   flex-direction: column;
-  gap:10px;
+  gap: 10px;
   align-items: center;
   text-align: center;
 }
+
 .add-expense-btn-section button,
-.add-earning-btn-section button{
+.add-earning-btn-section button {
   padding: 5px 60px;
   text-align: center;
   line-height: 30px;
-  margin:5px 0;
-  width:40%;
+  margin: 5px 0;
+  width: 40%;
   max-width: 400px;
 }
-.remove-btn{
-  margin:0 auto;
+
+.remove-btn {
+  margin: 0 auto;
 }

@@ -1,7 +1,7 @@
 #savings-section {
   position: relative;
-  height:100%;
-  width:100%;
+  height: 100%;
+  width: 100%;
 }
 
 #add-saving {
@@ -15,7 +15,8 @@
   background-color: #68C168;
   color: #FFFFFF;
 }
-#savings-section header{
+
+#savings-section header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,17 +24,19 @@
   margin: 0 1rem;
   border-bottom: 1px solid #c3c3d2;
 }
-#savings-cards{
+
+#savings-cards {
   margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding:10px;
-  gap:20px;
+  padding: 10px;
+  gap: 20px;
 }
-.saving-card{
+
+.saving-card {
   font-family: 'Lato', sans-serif;
-  display:flex;
+  display: flex;
   flex-direction: column;
   background-color: white;
   justify-content: center;
@@ -43,13 +46,15 @@
   box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
   flex-basis: calc(33.33% - 30px);
 }
+
 .mat-mdc-progress-bar {
   --mdc-linear-progress-active-indicator-height: 7px;
   --mdc-linear-progress-track-height: 7px;
   --mdc-linear-progress-track-shape: 0;
   border-radius: 10px;
-  margin:10px 0;
+  margin: 10px 0;
 }
+
 img {
   display: block;
   margin-left: auto;
@@ -57,42 +62,48 @@ img {
   max-width: 80%;
   height: auto;
 }
-.gold-icon{
-  color:gold;
+
+.gold-icon {
+  color: gold;
 }
-.title{
-  width:100%;
+
+.title {
+  width: 100%;
   align-items: center;
   justify-content: center;
   display: flex;
   border-bottom: 1px solid #c3c3d2;
 }
-.saving-amount{
+
+.saving-amount {
   font-weight: bolder;
-  font-size:17px;
+  font-size: 17px;
 }
-.savings-buttons{
+
+.savings-buttons {
   margin-top: 10px;
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-@media(max-width: 1200px){
-  .savings-buttons{
+@media (max-width: 1200px) {
+  .savings-buttons {
     flex-direction: column;
-    gap:5px;
+    gap: 5px;
   }
-  button{
-    font-size:14px;
+
+  button {
+    font-size: 14px;
   }
+
   #add-saving,
   .export-report,
-  .saving-amount
-  {
+  .saving-amount {
     font-size: 15px;
   }
-  .title h3{
+
+  .title h3 {
     font-size: 20px;
   }
 }

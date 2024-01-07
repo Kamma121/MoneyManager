@@ -1,70 +1,70 @@
 #profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #profile h3 {
-    color: #c3c3d2;
+  color: #c3c3d2;
 }
 
 #profile input {
-    border-radius: 10px;
-    padding: 5px;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 #profile input:disabled {
-    color: white;
-    background-color: #6e6e85;
-    border-color: #6e6e85;
+  color: white;
+  background-color: #6e6e85;
+  border-color: #6e6e85;
 }
 
 .profile-icon {
-    font-size: 80px;
-    color: #c3c3d2;
+  font-size: 80px;
+  color: #c3c3d2;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 input {
-    margin: 5px;
+  margin: 5px;
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
 }
 
 .profile-label {
-    color: white;
+  color: white;
 }
 
 .title {
-    border-bottom: 1px solid #c3c3d2;
-    width: 80%;
-    text-align: center;
-    margin-bottom: 2rem;
+  border-bottom: 1px solid #c3c3d2;
+  width: 80%;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .btn {
-    padding: 5px 25px;
+  padding: 5px 25px;
 }
 
 .edit-buttons {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
 }
 
 .cancel-btn {
-    padding: 5px 15px;
+  padding: 5px 15px;
 }
 
 .buttons {
-    margin-top: 10px;
+  margin-top: 10px;
 }

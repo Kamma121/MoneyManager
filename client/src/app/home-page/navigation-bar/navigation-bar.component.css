@@ -5,11 +5,12 @@
   padding: 8px;
   font-weight: normal;
   z-index: 3;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   position: sticky;
-  top:0;
+  top: 0;
   width: 100%;
 }
+
 .nav-option {
   color: white;
   font-size: 20px;
@@ -40,28 +41,34 @@
   padding: 4px;
   right: 6px;
 }
-.sign-up-btn:hover{
-  color:#ffd700;
+
+.sign-up-btn:hover {
+  color: #ffd700;
   background-color: #2c2c4e;
 }
+
 app-sign-in-modal,
-app-sign-up-modal{
+app-sign-up-modal {
   color: black;
   font-family: 'Righteous', sans-serif;
 }
+
 @media (max-width: 540px) {
   #home-nav {
     flex-direction: column;
   }
+
   .nav-option, .nav-logo {
     font-size: 17px;
   }
+
   .sign-up-btn, .text-end button {
     width: 100%;
     margin-top: 10px;
   }
-  .sign-buttons{
+
+  .sign-buttons {
     display: flex;
-    width:60%;
+    width: 60%;
   }
 }

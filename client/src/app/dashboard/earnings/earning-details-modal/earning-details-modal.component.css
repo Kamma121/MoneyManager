@@ -1,7 +1,7 @@
 .modal-header {
   text-align: center;
   justify-content: center;
-  padding:3px;
+  padding: 3px;
   margin-bottom: 10px;
 }
 
@@ -25,55 +25,68 @@
   display: flex;
 
 }
+
 .earning-section-info > div {
   flex: 1;
   text-align: center;
 }
-.earning-section-info > div:first-child{
+
+.earning-section-info > div:first-child {
   text-align: left;
 }
-.earning-section-info > div:last-child{
+
+.earning-section-info > div:last-child {
   text-align: right;
 }
-.date-input{
-  width:70%;
+
+.date-input {
+  width: 70%;
 }
-.source-input{
-  width:90%;
+
+.source-input {
+  width: 90%;
 }
-.amount-input{
-  width:60%;
+
+.amount-input {
+  width: 60%;
 }
-.amount-box{
+
+.amount-box {
   display: flex;
   justify-content: flex-end;
 }
-.source-box{
-  display:flex;
+
+.source-box {
+  display: flex;
   justify-content: center;
 }
 
-.custom-modal-lg{
+.custom-modal-lg {
   max-width: 600px;
 }
-.labels{
+
+.labels {
   font-weight: bolder;
 }
+
 .buttons {
   position: absolute;
   right: 20px;
   bottom: 20px;
   display: flex;
-  gap:10px;
+  gap: 10px;
 }
-.margin-bottom-30p{
+
+.margin-bottom-30p {
   margin-bottom: 30px;
 }
-.dollar-glass-icon{
-  color:gold;
-  font-size:22px;
-  margin-left:4px;
+
+.dollar-glass-icon {
+  color: gold;
+  font-size: 22px;
+  margin-left: 4px;
 }
-.dollar-glass-icon:hover{
+
+.dollar-glass-icon:hover {
   cursor: auto;
 }

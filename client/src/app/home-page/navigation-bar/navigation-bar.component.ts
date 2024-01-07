@@ -8,6 +8,6 @@ import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
   styleUrls: ['./navigation-bar.component.css']
 })
 export class NavigationBarComponent {
-  faSackDollar:IconDefinition = faSackDollar;
+  faSackDollar: IconDefinition = faSackDollar;
 
 }

@@ -9,7 +9,8 @@ import {Observable} from "rxjs";
 })
 export class UserService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
 
   getUser(): Observable<User> {
