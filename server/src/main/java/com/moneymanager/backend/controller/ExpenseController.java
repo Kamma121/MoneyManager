@@ -22,21 +22,24 @@ public class ExpenseController {
     public ResponseEntity<List<Expense>> getAllExpenses(Principal principal) {
         return ResponseEntity.ok(expenseService.getAllExpenses(principal.getName()));
     }
+
     @PostMapping("/expense/add")
-    public ResponseEntity<List<Expense>> addExpenses(@RequestBody List<Expense> expenses,Principal principal){
-        for(Expense expense:expenses) {
+    public ResponseEntity<List<Expense>> addExpenses(@RequestBody List<Expense> expenses, Principal principal) {
+        for (Expense expense : expenses) {
             expense.setUser(userService.getUser(principal.getName()));
         }
         return ResponseEntity.ok(expenseService.addExpenses(expenses));
     }
+
     @PutMapping("/expense/{expenseId}")
-    public ResponseEntity<Expense> updateExpense(@PathVariable Long expenseId,@RequestBody Expense expense,Principal principal){
+    public ResponseEntity<Expense> updateExpense(@PathVariable Long expenseId, @RequestBody Expense expense, Principal principal) {
         expense.setUser(userService.getUser(principal.getName()));
-        return ResponseEntity.ok(expenseService.updateExpense(expenseId,expense));
+        return ResponseEntity.ok(expenseService.updateExpense(expenseId, expense));
     }
+
     @DeleteMapping("/expense/{expenseId}")
-    public ResponseEntity<?> deleteExpense(@PathVariable Long expenseId,Principal principal) throws AccessDeniedException {
-        if(!principal.getName().equals(expenseService.getExpenseById(expenseId).getUser().getUsername())){
+    public ResponseEntity<?> deleteExpense(@PathVariable Long expenseId, Principal principal) throws AccessDeniedException {
+        if (!principal.getName().equals(expenseService.getExpenseById(expenseId).getUser().getUsername())) {
             throw new AccessDeniedException("You don't have access to this resource");
         }
         expenseService.deleteExpense(expenseId);

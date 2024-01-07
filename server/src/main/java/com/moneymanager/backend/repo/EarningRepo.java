@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface EarningRepo extends JpaRepository<Earning,Long> {
+public interface EarningRepo extends JpaRepository<Earning, Long> {
     @Query("SELECT e FROM Earning e WHERE e.user.email = :email")
     List<Earning> findAllByUserEmail(String email);
 

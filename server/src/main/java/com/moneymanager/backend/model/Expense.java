@@ -21,7 +21,7 @@ public class Expense {
     private LocalDate date;
     @Column(name = "category")
     private String category;
-    @Column(name="message")
+    @Column(name = "message")
     private String message;
     @Column(name = "amount")
     private double amount;

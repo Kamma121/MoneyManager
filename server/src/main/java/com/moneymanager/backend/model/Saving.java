@@ -17,9 +17,9 @@ public class Saving {
     private Long id;
     @Column(name = "name")
     private String name;
-    @Column(name="current_amount")
+    @Column(name = "current_amount")
     private double currentAmount;
-    @Column(name="target_amount")
+    @Column(name = "target_amount")
     private double targetAmount;
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")

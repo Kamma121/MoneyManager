@@ -23,7 +23,7 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(RegisterRequest request) throws UserAlreadyExistException {
-        if(userRepo.findByEmail(request.getEmail()).isPresent()){
+        if (userRepo.findByEmail(request.getEmail()).isPresent()) {
             throw new UserAlreadyExistException();
         }
         User user = User.builder()

@@ -22,12 +22,14 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleUserNotFound(UsernameNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ex.getMessage());
     }
+
     @ExceptionHandler(AccessDeniedException.class)
-    public ResponseEntity<String> handleAccessDenied(AccessDeniedException ex){
+    public ResponseEntity<String> handleAccessDenied(AccessDeniedException ex) {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ex.getMessage());
     }
+
     @ExceptionHandler(UserAlreadyExistException.class)
-    public ResponseEntity<String> handleUserExists(UserAlreadyExistException ex){
+    public ResponseEntity<String> handleUserExists(UserAlreadyExistException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
 

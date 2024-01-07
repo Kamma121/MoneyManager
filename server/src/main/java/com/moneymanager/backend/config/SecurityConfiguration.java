@@ -20,17 +20,17 @@ public class SecurityConfiguration {
 
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf->csrf.disable())
-                .authorizeHttpRequests(auth ->auth
-                        .requestMatchers("/api/auth/**","/api/contact")
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/auth/**", "/api/contact")
                         .permitAll()
                         .anyRequest()
                         .authenticated()
 
                 )
-                .sessionManagement(session ->session
+                .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
                 .authenticationProvider(authenticationProvider)
