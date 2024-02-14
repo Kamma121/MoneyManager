@@ -32,7 +32,6 @@ public class SavingController {
     @PutMapping("/saving/{savingId}")
     public ResponseEntity<Saving> updateSaving(@PathVariable Long savingId, @RequestBody Saving saving, Principal principal) {
         saving.setUser(userService.getUser(principal.getName()));
-        System.out.println(saving);
         return ResponseEntity.ok(savingService.updateSaving(savingId, saving));
     }
 
